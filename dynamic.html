@@ -145,20 +145,31 @@ h1,h2,h3,h4{
 }
 @media (max-width:1024px){.site-nav{display:none}}
 
-/* ─── HERO — asymmetric split with inline image typography ──── */
+/* ─── HERO — BOXED asymmetric split with inline image typography ── */
 .hero{
-  position:relative;min-height:100dvh;
-  display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr auto;
-  background:var(--c-paper);overflow:hidden;
-  padding-top:64px;
+  position:relative;
+  padding:96px 24px 32px;
+  background:#fff;
 }
-@media (max-width:1024px){.hero{grid-template-columns:1fr;grid-template-rows:auto auto auto;min-height:auto;padding-top:80px}}
+@media (max-width:768px){.hero{padding:84px 16px 24px}}
+.hero__inner{
+  position:relative;
+  max-width:var(--container);margin:0 auto;
+  display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr auto;
+  min-height:calc(100dvh - 128px);
+  background:var(--c-paper);
+  border-radius:24px;overflow:hidden;
+  box-shadow:0 32px 80px -32px rgba(0,40,80,.18);
+}
+@media (max-width:1024px){
+  .hero__inner{grid-template-columns:1fr;grid-template-rows:auto auto auto;min-height:auto;border-radius:18px}
+}
 .hero__content{
   display:flex;flex-direction:column;justify-content:center;
-  padding:64px 48px 64px 64px;position:relative;z-index:2;
+  padding:72px 56px;position:relative;z-index:2;
   grid-column:1;grid-row:1;
 }
-@media (max-width:1024px){.hero__content{padding:48px 24px;grid-column:1;grid-row:1}}
+@media (max-width:1024px){.hero__content{padding:48px 28px;grid-column:1;grid-row:1}}
 .hero__eyebrow{
   display:inline-flex;align-items:center;gap:12px;
   font-family:var(--f-body);font-size:11px;font-weight:700;
@@ -232,14 +243,14 @@ h1,h2,h3,h4{
 /* Hero meta as a separate non-overlapping row at the bottom */
 .hero__meta{
   grid-column:1;grid-row:2;z-index:3;
-  display:flex;gap:64px;
-  padding:32px 64px 40px;background:var(--c-paper);
+  display:flex;gap:56px;
+  padding:28px 56px 36px;background:var(--c-paper);
   font-family:var(--f-mono);font-size:11px;
   color:var(--c-gray-med);letter-spacing:.06em;
   border-top:1px solid rgba(0,0,0,.06);
 }
 .hero__meta strong{display:block;font-family:var(--f-display);font-weight:700;font-size:24px;color:var(--c-dark);margin-bottom:4px}
-@media (max-width:1024px){.hero__meta{grid-column:1;grid-row:3;padding:24px;gap:32px;flex-wrap:wrap}}
+@media (max-width:1024px){.hero__meta{grid-column:1;grid-row:3;padding:24px 28px;gap:28px;flex-wrap:wrap}}
 
 /* ─── INTRO — asymmetric whitespace ─────────────────────────── */
 .intro{padding:140px 0;background:#fff}
@@ -651,34 +662,36 @@ h1,h2,h3,h4{
   </div>
 </header>
 
-<!-- HERO — Drupal: <section class="hero --asymmetric"> with field-key-image + field-headline + field-text -->
+<!-- HERO — Drupal: <section class="hero --boxed"> wraps an inner grid -->
 <section class="hero">
-  <div class="hero__content">
-    <span class="hero__eyebrow">Hellmann Worldwide Logistics · Spain</span>
-    <h1>
-      <span class="line">Iberia,</span>
-      <span class="line">
-        <img class="inline-img" src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=200&q=80" alt="" aria-hidden="true">
-        <span class="accent">connected to</span>
-      </span>
-      <span class="line">
-        <span class="accent-red">the world</span>
-        <img class="inline-img --2" src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=200&q=80" alt="" aria-hidden="true">
-      </span>
-    </h1>
-    <p class="hero__lede">International freight forwarding and contract logistics across the Iberian Peninsula. Four offices, one local team, supported by Hellmann's worldwide network in 173 countries.</p>
-    <div class="hero__cta">
-      <a class="btn --primary" href="#contact">Let's Do Business <span class="arrow">→</span></a>
-      <a class="btn --outline" href="#offices">Find a Local Office</a>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <span class="hero__eyebrow">Hellmann Worldwide Logistics · Spain</span>
+      <h1>
+        <span class="line">Iberia,</span>
+        <span class="line">
+          <img class="inline-img" src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=200&q=80" alt="" aria-hidden="true">
+          <span class="accent">connected to</span>
+        </span>
+        <span class="line">
+          <span class="accent-red">the world</span>
+          <img class="inline-img --2" src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=200&q=80" alt="" aria-hidden="true">
+        </span>
+      </h1>
+      <p class="hero__lede">International freight forwarding and contract logistics across the Iberian Peninsula. Four offices, one local team, supported by Hellmann's worldwide network in 173 countries.</p>
+      <div class="hero__cta">
+        <a class="btn --primary" href="#contact">Let's Do Business <span class="arrow">→</span></a>
+        <a class="btn --outline" href="#offices">Find a Local Office</a>
+      </div>
     </div>
-  </div>
-  <div class="hero__visual">
-    <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1920&q=80" alt="Aerial view of a container port" loading="eager">
-  </div>
-  <div class="hero__meta">
-    <div><strong>1999</strong>Founded in Spain</div>
-    <div><strong>160</strong>Local specialists</div>
-    <div><strong>4</strong>Spanish offices</div>
+    <div class="hero__visual">
+      <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1920&q=80" alt="Aerial view of a container port" loading="eager">
+    </div>
+    <div class="hero__meta">
+      <div><strong>1999</strong>Founded in Spain</div>
+      <div><strong>160</strong>Local specialists</div>
+      <div><strong>4</strong>Spanish offices</div>
+    </div>
   </div>
 </section>
 
