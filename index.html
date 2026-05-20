@@ -196,30 +196,69 @@ p{margin:0 0 1em}
 }
 .button.--frosty:hover{background:rgba(255,255,255,.45);opacity:1}
 
-/* ─── Header / top nav ──────────────────────────────────────────── */
+/* ─── Header (matches hellmann.com top bar) ──────────────────── */
 .site-header{
   position:sticky;top:0;z-index:50;background:#fff;
   border-bottom:1px solid var(--color-gray-rlight);
 }
 .site-header__inner{
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;gap:24px;
   padding:14px 24px;max-width:var(--container-max);margin:0 auto;
 }
 .site-logo{
-  display:flex;align-items:center;gap:10px;
-  font-family:var(--font-display);font-weight:700;font-size:18px;
-  color:var(--color-hwl-blue);letter-spacing:.02em;
+  display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;
+  text-decoration:none;line-height:1;flex-shrink:0;
 }
-.site-logo__mark{
-  width:28px;height:28px;border-radius:4px;background:var(--color-hwl-blue);
-  color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700;
+.site-logo__brand{
+  font-family:var(--font-display);font-weight:700;font-size:26px;
+  color:#E22118;letter-spacing:-.02em;line-height:1;
 }
-.site-nav{display:flex;align-items:center;gap:24px}
-.site-nav__link{font-size:14px;font-weight:500;color:var(--color-gray-dark);font-family:var(--font-body)}
-.site-nav__icons{display:flex;gap:14px;align-items:center;color:var(--color-gray-medium)}
-.site-nav__icons a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:inherit;font-size:14px}
-.site-nav__icons a:hover{background:var(--color-gray-rlight);text-decoration:none}
-@media (max-width:1024px){.site-nav__link{display:none}}
+.site-logo__tagline{
+  font-family:var(--font-body);font-weight:700;font-size:9px;
+  color:var(--color-hwl-blue);letter-spacing:.18em;
+  text-transform:uppercase;margin-top:3px;
+}
+.site-header__search{
+  flex:1;max-width:520px;display:flex;align-items:center;gap:8px;
+  background:var(--color-gray-rlight);border-radius:5px;
+  padding:0 14px;height:42px;
+}
+.site-header__search input{
+  flex:1;border:0;background:transparent;outline:none;
+  font-family:var(--font-body);font-size:13px;font-weight:700;
+  color:var(--color-gray-medium);text-transform:uppercase;letter-spacing:.12em;
+}
+.site-header__search input::placeholder{color:var(--color-gray-light);font-weight:700}
+.site-header__search button{
+  background:transparent;border:0;cursor:pointer;color:var(--color-gray-medium);
+  display:grid;place-items:center;padding:4px;
+}
+.site-header__utility{display:flex;gap:6px;align-items:center;color:var(--color-gray-medium);flex-shrink:0}
+.site-header__utility a, .site-header__utility button{
+  width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;color:inherit;font-size:16px;
+  background:transparent;border:0;cursor:pointer;text-decoration:none;
+}
+.site-header__utility a:hover, .site-header__utility button:hover{background:var(--color-gray-rlight)}
+.site-header__lang{
+  width:36px;height:36px;border-radius:6px;background:transparent;
+  border:1px solid var(--color-gray-light);
+  display:grid;place-items:center;font-size:11px;font-weight:700;
+  letter-spacing:.06em;color:var(--color-gray-dark);
+}
+.site-header__nav{background:var(--color-gray-rlight);border-bottom:1px solid var(--color-gray-light)}
+.site-header__nav .container{display:flex;gap:32px;padding:10px 24px}
+.site-header__nav a{
+  font-family:var(--font-body);font-size:12px;font-weight:700;
+  color:var(--color-gray-medium);text-transform:uppercase;letter-spacing:.12em;
+  padding:6px 0;text-decoration:none;
+}
+.site-header__nav a:hover{color:var(--color-hwl-blue)}
+@media (max-width:768px){
+  .site-header__search{display:none}
+  .site-header__utility a:nth-child(3){display:none}
+  .site-header__nav .container{gap:18px;overflow-x:auto;font-size:11px}
+}
 
 /* ─── Hero (.hero.--full-image) ────────────────────────────────── */
 .hero{
@@ -436,36 +475,77 @@ p{margin:0 0 1em}
 /* Light gray section wrapper */
 .bg-rlight{background:var(--color-gray-rlight)}
 
-/* ─── Footer ───────────────────────────────────────────────────── */
+/* ─── Footer (mirrors hellmann.com minimal footer) ───────────── */
 .site-footer{
-  background:var(--color-gray-dark);color:rgba(255,255,255,.75);
-  padding:56px 0 24px;font-size:14px;
+  position:relative;background:#fff;color:var(--color-gray-medium);
+  padding:0;font-size:13px;border-top:1px solid var(--color-gray-rlight);
+  overflow:hidden;
 }
-.site-footer a{color:rgba(255,255,255,.75)}
-.site-footer a:hover{color:#fff}
-.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
-.footer__brand{
-  font-family:var(--font-display);font-weight:700;font-size:18px;
-  color:#fff;margin-bottom:12px;display:inline-block;
+.site-footer__map{
+  position:absolute;inset:0;z-index:0;opacity:.06;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'><path fill='%23004D99' d='M150 200c20-10 40-5 60 5s40 20 65 15c20-5 30-25 50-30s40 10 60 5c25-5 45-30 70-30 30 0 50 25 75 25 20 0 35-15 55-15M200 280c25-5 50 10 75 10s50-10 75-15 50 5 75 10 50-15 70-10c20 5 40 25 60 25M350 350c30-5 60 10 90 10s55-15 80-10c25 5 45 25 70 25'/></svg>");
+  background-repeat:no-repeat;background-size:cover;background-position:center;
 }
-.footer__group h5{
-  font-family:var(--font-display);font-weight:500;color:#fff;
-  text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin:0 0 14px;
+.site-footer > *{position:relative;z-index:1}
+.site-footer__top{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:24px;border-bottom:1px solid var(--color-gray-rlight);
 }
-.footer__group ul li{margin-bottom:8px}
-.footer__social{display:flex;gap:10px;margin-top:18px}
-.footer__social a{
-  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);
-  display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:11px;color:#fff;
+.site-footer__top .site-header__search{max-width:420px;background:#fff;border:1px solid var(--color-gray-light)}
+.site-footer__social{
+  display:flex;justify-content:center;gap:24px;
+  padding:32px 24px 24px;
 }
-.footer__social a:hover{background:var(--color-hwl-red);text-decoration:none}
-.footer__base{
-  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
-  border-top:1px solid rgba(255,255,255,.12);padding-top:24px;
+.site-footer__social a{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--color-hwl-blue);color:#fff;
+  display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:700;font-size:14px;
+  text-decoration:none;transition:background .2s;
 }
-.footer__base ul{display:flex;gap:20px;flex-wrap:wrap}
-@media (max-width:768px){.footer__grid{grid-template-columns:1fr 1fr;gap:32px}}
-@media (max-width:560px){.footer__grid{grid-template-columns:1fr}}
+.site-footer__social a:hover{background:var(--color-hwl-red)}
+.site-footer__legal{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;
+  padding:0 24px 32px;
+}
+.site-footer__legal a{
+  font-family:var(--font-body);font-size:12px;font-weight:700;
+  color:var(--color-gray-medium);text-transform:uppercase;letter-spacing:.12em;
+  text-decoration:none;
+}
+.site-footer__legal a:hover{color:var(--color-hwl-blue)}
+.site-footer__legal .sep{color:var(--color-gray-light)}
+.site-footer__copyright{
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  padding:24px;border-top:1px solid var(--color-gray-rlight);
+}
+.site-footer__copyright .site-logo{align-items:center}
+.site-footer__copyright .site-logo__brand{font-size:22px}
+.site-footer__copyright p{margin:0;font-size:11px;color:var(--color-gray-light);text-transform:uppercase;letter-spacing:.1em}
+
+/* ─── Values grid (Hellmann Promise — improved Vision section) ─ */
+.values-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;
+}
+.value-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--radius-lg);padding:24px 20px;
+  backdrop-filter:blur(8px);
+  transition:transform .25s ease,background .25s ease,border-color .25s ease;
+}
+.value-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35)}
+.value-card__num{
+  font-family:var(--font-display);font-weight:700;font-size:13px;
+  color:rgba(255,255,255,.55);letter-spacing:.12em;margin-bottom:12px;display:block;
+}
+.value-card h3{
+  font-family:var(--font-display);font-weight:700;font-size:18px;color:#fff;
+  margin:0 0 8px;
+}
+.value-card p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.82);margin:0}
+@media (max-width:1024px){.values-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.values-grid{grid-template-columns:1fr}}
+.vision__intro{max-width:780px;margin-bottom:24px}
 
 /* ─── Password gate (client-side soft gate) ──────────────────── */
 #gate{
@@ -561,26 +641,42 @@ p{margin:0 0 1em}
 </script>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SITE HEADER (matches hellmann.com top bar)
+     SITE HEADER (mirrors hellmann.com top bar)
      ─────────────────────────────────────────────────────────────── -->
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="#" class="site-logo" aria-label="Hellmann Worldwide Logistics">
-      <span class="site-logo__mark">H</span>
-      <span>HELLMANN</span>
+    <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics — back to home">
+      <span class="site-logo__brand">hellmann</span>
+      <span class="site-logo__tagline">Worldwide Logistics</span>
     </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a class="site-nav__link" href="#offices">Offices</a>
-      <a class="site-nav__link" href="#products">Products</a>
-      <a class="site-nav__link" href="#industries">Industries</a>
-      <a class="site-nav__link" href="#contact">Contact</a>
-      <div class="site-nav__icons" aria-hidden="true">
-        <a href="https://www.hellmann.com/en/search/node" title="Search">🔍</a>
-        <a href="https://portal.emea.hellmann.net/authentication/login/" title="Customer portal login">👤</a>
-        <a href="https://www.hellmann.com/en" title="Main menu">☰</a>
-      </div>
-    </nav>
+    <form class="site-header__search" role="search" onsubmit="event.preventDefault();window.location='https://www.hellmann.com/en/search/node?keys='+encodeURIComponent(this.elements[0].value);">
+      <input type="search" placeholder="Search &amp; find" aria-label="Search hellmann.com">
+      <button type="submit" aria-label="Submit search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+    <div class="site-header__utility">
+      <a href="https://portal.emea.hellmann.net/authentication/login/" title="Customer portal login" rel="noopener" target="_blank" aria-label="Customer portal login">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+      </a>
+      <span class="site-header__lang" title="Language: English">EN</span>
+      <a href="https://www.hellmann.com/en" title="Apps" aria-label="Hellmann apps">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="1.6"/><circle cx="12" cy="5" r="1.6"/><circle cx="19" cy="5" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="5" cy="19" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="19" cy="19" r="1.6"/></svg>
+      </a>
+      <a href="https://www.hellmann.com/en" title="Open menu" aria-label="Open main menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </a>
+    </div>
   </div>
+  <nav class="site-header__nav" aria-label="Page sections">
+    <div class="container">
+      <a href="#offices">Offices</a>
+      <a href="#products">Products</a>
+      <a href="#industries">Industries</a>
+      <a href="#latam">Iberia &amp; LATAM</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 </header>
 
 <!-- ═══════════════════════════════════════════════════════════════
@@ -788,7 +884,7 @@ p{margin:0 0 1em}
       </div>
       <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
         <article class="card">
-          <div class="card__image"><img src="https://images.unsplash.com/photo-1494412574745-e8bda5bf2607?w=900&q=80" alt=""></div>
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=900&q=80" alt="Container ship at port"></div>
           <div class="card__body">
             <h3 class="card__title">Seafreight</h3>
             <ul class="card__bullets">
@@ -810,13 +906,13 @@ p{margin:0 0 1em}
               <li>Daily departures from Madrid, Catalonia, the Basque Country and Valencia</li>
               <li>Fixed transit times, door-to-door delivery, and ADR-compliant equipment for hazardous goods</li>
             </ul>
-            <a class="card__link" href="https://www.hellmann.com/en/products/spain-transport">Learn More <span class="arrow">→</span></a>
+            <a class="card__link" href="https://www.hellmann.com/en/products/roadfreight">Learn More <span class="arrow">→</span></a>
           </div>
         </article>
       </div>
       <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
         <article class="card">
-          <div class="card__image"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt=""></div>
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt="Warehouse contract logistics"></div>
           <div class="card__body">
             <h3 class="card__title">Contract Logistics</h3>
             <ul class="card__bullets">
@@ -849,16 +945,16 @@ p{margin:0 0 1em}
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
           <div class="industry-card">
-            <h3 class="industry-card__title">Automotive</h3>
+            <h3 class="industry-card__title">Automotive and Agricultural</h3>
             <p class="industry-card__copy">Logistics support for original equipment manufacturers and tier-one suppliers across Catalonia, Valencia and the Basque Country. Services cover just-in-time inbound logistics, finished-vehicle distribution and aftermarket parts.</p>
-            <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/automotive">Industry insights →</a>
+            <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/automotive-logistics">Industry insights →</a>
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
           <div class="industry-card">
             <h3 class="industry-card__title">Fashion</h3>
             <p class="industry-card__copy">Spain is home to several of the world's largest fashion exporters. Our Barcelona and Madrid teams manage store replenishment, e-commerce fulfilment and reverse logistics for both domestic and international brands.</p>
-            <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/fashion">Industry insights →</a>
+            <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/fashion-logistics">Industry insights →</a>
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
@@ -872,7 +968,7 @@ p{margin:0 0 1em}
           <div class="industry-card">
             <h3 class="industry-card__title">Renewable Energy</h3>
             <p class="industry-card__copy">Spain is one of Europe's largest markets for installed solar and wind capacity. We transport blades, towers, transformers and photovoltaic modules from manufacturer to project site, including the heavy-haul road permits required.</p>
-            <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/renewable-energy">Industry insights →</a>
+            <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/renewable-energy-logistics">Industry insights →</a>
           </div>
         </div>
       </div>
@@ -885,7 +981,7 @@ p{margin:0 0 1em}
      Drupal:  section > grid > [column.md:w-6/12 text+headline] + [column.md:w-6/12 image/media-assets]
      (Mirrors Benelux "New Airfreight Consolidation Service: Benelux to Dubai")
      ─────────────────────────────────────────────────────────────── -->
-<div class="paragraph paragraph--section mt-lg paragraph--text_and_image">
+<div class="paragraph paragraph--section mt-lg paragraph--text_and_image" id="latam">
   <div class="paragraph paragraph--grid container">
     <div class="flex flex-wrap c-grid">
       <!-- text column -->
@@ -935,76 +1031,118 @@ p{margin:0 0 1em}
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     VISION  (Drupal: paragraph--quote_vision)
+     THE HELLMANN PROMISE  (Drupal: paragraph--quote_vision)
      ─────────────────────────────────────────────────────────────── -->
 <div class="paragraph paragraph--section paragraph--quote_vision">
   <div class="container" style="position:relative;z-index:1">
-    <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">The Hellmann Promise</span>
-    <p class="quote_vision__quote">For the better. Together.</p>
-    <p class="quote_vision__body">
-      Hellmann Worldwide Logistics was founded in 1871 and remains under family ownership. Across every market we operate, including Spain, we apply the same set of values that have guided the company for more than 150 years.
-    </p>
-    <div class="quote_vision__values" aria-label="Hellmann values">
-      <span>Caring</span><span>Entrepreneurial</span><span>Appreciative</span>
-      <span>Empowering</span><span>Respectful</span><span>Sustainable</span><span>Passionate</span>
+    <div class="vision__intro">
+      <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">The Hellmann Promise</span>
+      <p class="quote_vision__quote">For the better. Together.</p>
+      <p class="quote_vision__body">
+        Hellmann Worldwide Logistics was founded in 1871 and remains under family ownership. Across every market we operate, including Spain, we apply the same set of seven values that have guided the company for more than 150 years.
+      </p>
+    </div>
+    <div class="values-grid" aria-label="The seven values of the Hellmann Promise">
+      <div class="value-card">
+        <span class="value-card__num">01</span>
+        <h3>Caring</h3>
+        <p>We look after people, partners, and the cargo we move.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-card__num">02</span>
+        <h3>Entrepreneurial</h3>
+        <p>We act with the agility and ownership of a family business.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-card__num">03</span>
+        <h3>Appreciative</h3>
+        <p>We recognise contributions across teams, customers, and partners.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-card__num">04</span>
+        <h3>Empowering</h3>
+        <p>We give our people the trust and tools to make local decisions.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-card__num">05</span>
+        <h3>Respectful</h3>
+        <p>We treat every market and every culture with the same standards.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-card__num">06</span>
+        <h3>Sustainable</h3>
+        <p>We design supply chains that work for the long term, environmentally and commercially.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-card__num">07</span>
+        <h3>Passionate</h3>
+        <p>We are committed to the work of moving the world's goods, every day.</p>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     FOOTER
+     FOOTER (mirrors hellmann.com minimal footer pattern)
      ─────────────────────────────────────────────────────────────── -->
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <a href="#" class="footer__brand">HELLMANN</a>
-        <p style="max-width:38ch">Hellmann Worldwide Logistics, founded in 1871, is one of the largest family-owned international logistics providers, with over 12,000 employees and a presence in 62 countries worldwide.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.linkedin.com/company/hellmann-worldwide-logistics" aria-label="LinkedIn" rel="noopener" target="_blank">in</a>
-          <a href="https://www.instagram.com/hellmannworldwide/" aria-label="Instagram" rel="noopener" target="_blank">IG</a>
-          <a href="https://www.facebook.com/HellmannWorldwideLogistics" aria-label="Facebook" rel="noopener" target="_blank">f</a>
-          <a href="https://www.xing.com/companies/hellmannworldwidelogistics" aria-label="Xing" rel="noopener" target="_blank">X</a>
-          <a href="https://www.youtube.com/user/HellmannLogistics" aria-label="YouTube" rel="noopener" target="_blank">YT</a>
-        </div>
-      </div>
-      <div class="footer__group">
-        <h5>Hellmann Spain</h5>
-        <ul>
-          <li><a href="#offices">Offices</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="https://www.hellmann.com/en/products/spain-transport">Spain transport</a></li>
-        </ul>
-      </div>
-      <div class="footer__group">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="https://www.hellmann.com/en/products/airfreight">Airfreight</a></li>
-          <li><a href="https://www.hellmann.com/en/products/seafreight">Seafreight</a></li>
-          <li><a href="https://www.hellmann.com/en/products/groupage">Road and Rail (Groupage)</a></li>
-          <li><a href="https://www.hellmann.com/en/products/contract-logistics">Contract Logistics</a></li>
-        </ul>
-      </div>
-      <div class="footer__group">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="https://portal.emea.hellmann.net/authentication/login/" rel="noopener" target="_blank">Portal Login</a></li>
-          <li><a href="https://www.hellmann.com/en/about-us/company">About us</a></li>
-          <li><a href="https://www.hellmann.com/en/career">Career</a></li>
-          <li><a href="https://careers.hellmann.com/en/spain">Careers Spain</a></li>
-        </ul>
-      </div>
+  <div class="site-footer__map" aria-hidden="true"></div>
+
+  <!-- Mini-header at the top of the footer (matches real hellmann.com pattern) -->
+  <div class="site-footer__top">
+    <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics — home">
+      <span class="site-logo__brand">hellmann</span>
+      <span class="site-logo__tagline">Worldwide Logistics</span>
+    </a>
+    <form class="site-header__search" role="search" onsubmit="event.preventDefault();window.location='https://www.hellmann.com/en/search/node?keys='+encodeURIComponent(this.elements[0].value);">
+      <input type="search" placeholder="Search &amp; find" aria-label="Search hellmann.com">
+      <button type="submit" aria-label="Submit search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+    <div class="site-header__utility">
+      <a href="https://portal.emea.hellmann.net/authentication/login/" title="Customer portal login" rel="noopener" target="_blank" aria-label="Customer portal login">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+      </a>
+      <span class="site-header__lang" title="Language: English">EN</span>
+      <a href="https://www.hellmann.com/en" title="Apps" aria-label="Hellmann apps">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="1.6"/><circle cx="12" cy="5" r="1.6"/><circle cx="19" cy="5" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="5" cy="19" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="19" cy="19" r="1.6"/></svg>
+      </a>
     </div>
-    <div class="footer__base">
-      <div>© 2026 Hellmann Worldwide Logistics. Concept page for Spain.</div>
-      <ul>
-        <li><a href="https://www.hellmann.com/en/legal">Legal</a></li>
-        <li><a href="https://www.hellmann.com/en/privacy">Privacy</a></li>
-        <li><a href="https://www.hellmann.com/en/whistleblowing">Whistleblowing</a></li>
-      </ul>
-    </div>
+  </div>
+
+  <!-- Social icons -->
+  <div class="site-footer__social" aria-label="Social media">
+    <a href="https://www.facebook.com/HellmannWorldwideLogistics" aria-label="Hellmann on Facebook" rel="noopener" target="_blank">f</a>
+    <a href="https://www.instagram.com/hellmannworldwide/" aria-label="Hellmann on Instagram" rel="noopener" target="_blank">IG</a>
+    <a href="https://www.linkedin.com/company/hellmann-worldwide-logistics" aria-label="Hellmann on LinkedIn" rel="noopener" target="_blank">in</a>
+    <a href="https://www.xing.com/companies/hellmannworldwidelogistics" aria-label="Hellmann on Xing" rel="noopener" target="_blank">X</a>
+  </div>
+
+  <!-- Legal / utility links (single row, matches real footer) -->
+  <nav class="site-footer__legal" aria-label="Legal and utility">
+    <a href="https://portal.emea.hellmann.net/authentication/login/" rel="noopener" target="_blank">Portal Login</a>
+    <span class="sep">·</span>
+    <a href="https://www.hellmann.com/en/contact">Contact</a>
+    <span class="sep">·</span>
+    <a href="https://www.hellmann.com/en/about-us/downloads">Downloads</a>
+    <span class="sep">·</span>
+    <a href="https://www.hellmann.com/en/legal">Legal</a>
+    <span class="sep">·</span>
+    <a href="https://www.hellmann.com/en/privacy">Privacy</a>
+    <span class="sep">·</span>
+    <a href="https://www.hellmann.com/en/whistleblowing">Whistleblowing</a>
+    <span class="sep">·</span>
+    <a href="#" onclick="event.preventDefault();sessionStorage.clear();location.reload()">Cookies</a>
+  </nav>
+
+  <!-- Bottom: brand + copyright -->
+  <div class="site-footer__copyright">
+    <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics">
+      <span class="site-logo__brand">hellmann</span>
+      <span class="site-logo__tagline">Worldwide Logistics</span>
+    </a>
+    <p>© 2026 Hellmann Worldwide Logistics · Concept page for Spain</p>
   </div>
 </footer>
 
