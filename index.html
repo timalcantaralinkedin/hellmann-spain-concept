@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hellmann Worldwide Logistics Spain | Concept</title>
+<meta name="description" content="Concept landing page for Hellmann Worldwide Logistics Spain — connecting Iberia to global trade through air, sea, road, and contract logistics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Manrope:wght@500;700&display=swap">
+<style>
+/* Univia from Hellmann CDN (with Manrope/Roboto fallback) */
+@font-face{
+  font-family:'Univia';
+  font-weight:500;
+  font-display:swap;
+  src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/univiapro-medium-webfont.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Univia';
+  font-weight:700;
+  font-display:swap;
+  src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/Univia-Bold.woff2') format('woff2');
+}
+
+/* ─────────────────────────────────────────
+   Hellmann design tokens (sourced from hellmann.com live CSS)
+   ───────────────────────────────────────── */
+:root{
+  --h-hwl-blue:210; --s-hwl-blue:100%; --l-hwl-blue:30%;
+  --h-hwl-red:3;    --s-hwl-red:80%;   --l-hwl-red:49%;
+
+  --color-hwl-blue: hsl(var(--h-hwl-blue),var(--s-hwl-blue),var(--l-hwl-blue));
+  --color-hwl-red:  hsl(var(--h-hwl-red),var(--s-hwl-red),var(--l-hwl-red));
+  --color-primary:  var(--color-hwl-blue);
+  --color-secondary:var(--color-hwl-red);
+
+  --color-white:#fff;
+  --color-gray-dark:    hsl(var(--h-hwl-blue),9%,23%);
+  --color-gray-medium:  hsl(var(--h-hwl-blue),35%,36%);
+  --color-gray-light:   hsl(var(--h-hwl-blue),19%,74%);
+  --color-gray-rlight:  hsl(var(--h-hwl-blue),19%,94%);
+  --color-black:#000;
+
+  --font-display:'Univia','Manrope','Inter',system-ui,sans-serif;
+  --font-body:'Roboto',system-ui,sans-serif;
+
+  --container-max:1280px;
+  --grid-gap:24px;
+  --spacing-base:80px;
+  --spacing-small:48px;
+  --border-radius-medium:12px;
+  --border-radius-large:24px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-weight:400;
+  color:var(--color-gray-dark);
+  background:var(--color-white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+a{color:var(--color-hwl-blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:700;
+  color:var(--color-gray-dark);
+  margin:0 0 .5em;
+  line-height:1.15;
+  letter-spacing:-.01em;
+}
+h1{font-size:clamp(2.25rem,5vw,3.75rem)}
+h2{font-size:clamp(1.75rem,3.5vw,2.5rem)}
+h3{font-size:1.5rem}
+h4{font-size:1.125rem;font-weight:500}
+p{margin:0 0 1em}
+
+.container{
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ─────────────────────────────────────────
+   Buttons (mirrors .button.--primary / .--outlined)
+   ───────────────────────────────────────── */
+.button{
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  min-width:200px;
+  padding:14px 28px;
+  font-family:var(--font-display);
+  font-size:.9375rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  text-decoration:none;
+  border:2px solid transparent;
+  border-radius:999px;
+  cursor:pointer;
+  transition:opacity .2s,background-color .2s,border-color .2s;
+  justify-content:center;
+}
+.button.--primary{
+  background:var(--color-hwl-blue);
+  color:var(--color-white);
+  border-color:var(--color-hwl-blue);
+}
+.button.--primary:hover{opacity:.85;text-decoration:none}
+.button.--outlined{
+  background:transparent;
+  color:var(--color-hwl-blue);
+  border-color:var(--color-hwl-blue);
+}
+.button.--outlined:hover{background:var(--color-hwl-blue);color:#fff;text-decoration:none}
+.button .arrow{display:inline-block;transition:transform .2s}
+.button:hover .arrow{transform:translateX(4px)}
+
+/* ─────────────────────────────────────────
+   Header / nav
+   ───────────────────────────────────────── */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--color-white);
+  border-bottom:1px solid var(--color-gray-rlight);
+  backdrop-filter:saturate(180%) blur(8px);
+}
+.site-header__inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;
+  max-width:var(--container-max);margin:0 auto;
+}
+.site-logo{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.25rem;
+  color:var(--color-hwl-blue);
+  letter-spacing:-.02em;
+  display:flex;align-items:center;gap:10px;
+}
+.site-logo__mark{
+  width:32px;height:32px;border-radius:6px;
+  background:var(--color-hwl-blue);
+  display:grid;place-items:center;
+  color:#fff;font-size:.85rem;font-weight:700;
+  letter-spacing:-.05em;
+}
+.site-nav{display:flex;align-items:center;gap:28px}
+.site-nav__link{
+  font-family:var(--font-body);
+  font-size:.9375rem;
+  font-weight:500;
+  color:var(--color-gray-dark);
+}
+.site-nav__cta{
+  background:var(--color-hwl-blue);
+  color:#fff !important;
+  padding:10px 22px;border-radius:999px;
+  font-weight:500;font-size:.875rem;
+}
+.site-nav__cta:hover{opacity:.85;text-decoration:none}
+.lang-pill{
+  font-family:var(--font-body);
+  font-size:.8125rem;
+  font-weight:500;
+  color:var(--color-gray-medium);
+  border:1px solid var(--color-gray-light);
+  border-radius:999px;
+  padding:6px 12px;
+}
+@media (max-width:768px){
+  .site-nav{display:none}
+  .site-nav.lang-pill{display:inline-block}
+}
+
+/* ─────────────────────────────────────────
+   Hero (.hero.--full-image)
+   ───────────────────────────────────────── */
+.hero{
+  position:relative;
+  min-height:560px;
+  display:flex;align-items:flex-end;
+  color:#fff;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero__bg{
+  position:absolute;inset:0;z-index:-2;
+  background:linear-gradient(135deg,var(--color-hwl-blue),hsl(210,100%,18%));
+}
+.hero__bg img{
+  width:100%;height:100%;object-fit:cover;
+  opacity:.55;
+}
+.hero__bg::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,hsla(210,100%,15%,.3) 0%,hsla(210,100%,12%,.85) 100%);
+}
+.hero__inner{
+  padding:80px 24px;
+  max-width:var(--container-max);
+  margin:0 auto;
+  width:100%;
+}
+.hero__eyebrow{
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.875rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  opacity:.9;
+  margin-bottom:16px;
+  display:inline-block;
+  padding-bottom:6px;
+  border-bottom:2px solid var(--color-hwl-red);
+}
+.hero h1{color:#fff;max-width:920px}
+.hero__lede{
+  font-size:clamp(1.0625rem,1.5vw,1.25rem);
+  max-width:680px;
+  opacity:.92;
+  margin-bottom:32px;
+}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ─────────────────────────────────────────
+   Section base
+   ───────────────────────────────────────── */
+section{padding:var(--spacing-base) 0}
+section.--tight{padding:var(--spacing-small) 0}
+.section-eyebrow{
+  font-family:var(--font-body);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:.8125rem;
+  font-weight:500;
+  color:var(--color-hwl-red);
+  margin-bottom:14px;
+  display:block;
+}
+
+/* ─────────────────────────────────────────
+   Intro
+   ───────────────────────────────────────── */
+.intro__lede{
+  font-size:1.25rem;
+  color:var(--color-gray-medium);
+  max-width:780px;
+  line-height:1.55;
+}
+.intro__body{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;margin-top:32px;
+}
+.intro__body p{color:var(--color-gray-dark);font-size:1.0625rem}
+@media (max-width:768px){
+  .intro__body{grid-template-columns:1fr;gap:24px}
+}
+
+/* ─────────────────────────────────────────
+   Facts (.facts.--appearance-framed_big)
+   ───────────────────────────────────────── */
+.facts{background:var(--color-gray-rlight)}
+.facts__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--grid-gap);
+}
+.facts__item{
+  background:#fff;
+  border:2.5px solid var(--color-gray-light);
+  border-radius:var(--border-radius-medium);
+  padding:36px 24px;
+  text-align:center;
+}
+.facts__number{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2.5rem,4.5vw,3.5rem);
+  color:var(--color-hwl-blue);
+  line-height:1;
+  margin-bottom:8px;
+}
+.facts__label{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:1.0625rem;
+  color:var(--color-gray-dark);
+  margin-bottom:6px;
+}
+.facts__sub{
+  font-size:.875rem;
+  color:var(--color-gray-medium);
+}
+@media (max-width:768px){
+  .facts__grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ─────────────────────────────────────────
+   Locations grid (4 cities)
+   ───────────────────────────────────────── */
+.locations__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--grid-gap);
+  margin-top:40px;
+}
+.location-card{
+  position:relative;
+  border-radius:var(--border-radius-medium);
+  overflow:hidden;
+  aspect-ratio:3/4;
+  background:var(--color-gray-medium);
+  isolation:isolate;
+  transition:transform .25s ease;
+}
+.location-card:hover{transform:translateY(-4px)}
+.location-card img{
+  width:100%;height:100%;object-fit:cover;
+  position:absolute;inset:0;z-index:-2;
+}
+.location-card::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,transparent 30%,hsla(210,100%,15%,.95) 100%);
+}
+.location-card__body{
+  position:absolute;inset:auto 0 0 0;
+  padding:24px;color:#fff;
+}
+.location-card__city{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.5rem;
+  margin-bottom:4px;
+}
+.location-card__role{
+  font-size:.875rem;
+  opacity:.92;
+  line-height:1.45;
+}
+@media (max-width:1024px){
+  .locations__grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ─────────────────────────────────────────
+   Contact card (.contact-person)
+   ───────────────────────────────────────── */
+.contact-band{background:var(--color-hwl-blue);color:#fff}
+.contact-band h2{color:#fff}
+.contact-card{
+  display:grid;
+  grid-template-columns:180px 1fr auto;
+  gap:32px;align-items:center;
+  background:hsla(0,0%,100%,.08);
+  border:1px solid hsla(0,0%,100%,.15);
+  border-radius:var(--border-radius-large);
+  padding:32px;
+  margin-top:32px;
+  backdrop-filter:blur(8px);
+}
+.contact-card__photo{
+  width:160px;height:160px;border-radius:50%;
+  background:hsla(0,0%,100%,.15);
+  display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:700;font-size:2.5rem;color:#fff;
+  border:2px solid hsla(0,0%,100%,.25);
+}
+.contact-card__name{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.5rem;margin-bottom:2px;color:#fff;
+}
+.contact-card__title{opacity:.85;font-size:.9375rem;margin-bottom:6px}
+.contact-card__meta{font-size:.875rem;opacity:.75}
+@media (max-width:768px){
+  .contact-card{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .contact-card .button{width:100%}
+}
+
+/* ─────────────────────────────────────────
+   Products & Industries grid (.--landscape cards)
+   ───────────────────────────────────────── */
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:8px;flex-wrap:wrap}
+.section-head p{max-width:560px;color:var(--color-gray-medium);font-size:1.0625rem;margin:0}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--grid-gap);
+  margin-top:40px;
+}
+.card-grid.--two-by-two{grid-template-columns:repeat(2,1fr)}
+@media (max-width:1024px){
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .card-grid{grid-template-columns:1fr}
+}
+
+.card{
+  display:flex;flex-direction:column;
+  background:#fff;
+  border-radius:var(--border-radius-medium);
+  overflow:hidden;
+  border:1px solid var(--color-gray-rlight);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px -20px hsla(210,100%,15%,.25);
+  border-color:var(--color-gray-light);
+}
+.card__image{
+  aspect-ratio:16/10;background:var(--color-gray-rlight);
+  position:relative;overflow:hidden;
+}
+.card__image img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease;
+}
+.card:hover .card__image img{transform:scale(1.04)}
+.card__body{padding:24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card__title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.25rem;color:var(--color-gray-dark);
+}
+.card__copy{
+  font-size:.9375rem;color:var(--color-gray-medium);
+  line-height:1.55;margin:0;
+}
+.card__link{
+  margin-top:auto;
+  font-family:var(--font-display);font-weight:500;
+  font-size:.9375rem;
+  color:var(--color-hwl-blue);
+  display:inline-flex;align-items:center;gap:.5em;
+  padding-top:12px;
+}
+.card__link .arrow{transition:transform .2s}
+.card:hover .card__link .arrow{transform:translateX(4px)}
+
+/* Industry card variant — accent border-top */
+.card.--industry{border-top:3px solid var(--color-hwl-red)}
+
+/* ─────────────────────────────────────────
+   Feature block (Iberia ↔ LATAM — slider text & image)
+   ───────────────────────────────────────── */
+.feature{
+  background:linear-gradient(180deg,var(--color-gray-rlight) 0%,#fff 100%);
+}
+.feature__grid{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:64px;
+  align-items:center;
+}
+.feature__visual{
+  position:relative;border-radius:var(--border-radius-large);
+  overflow:hidden;aspect-ratio:4/3;
+  background:var(--color-hwl-blue);
+}
+.feature__visual img{width:100%;height:100%;object-fit:cover}
+.feature__visual::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 50%,hsla(210,100%,30%,.4) 100%);
+}
+.feature__body ul{
+  list-style:none;padding:0;margin:24px 0 32px;
+  display:grid;gap:14px;
+}
+.feature__body li{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:1rem;color:var(--color-gray-dark);
+}
+.feature__body li::before{
+  content:"";flex-shrink:0;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--color-hwl-red);
+  margin-top:9px;
+}
+@media (max-width:1024px){
+  .feature__grid{grid-template-columns:1fr;gap:32px}
+}
+
+/* ─────────────────────────────────────────
+   Quote / Vision (.quote-vision)
+   ───────────────────────────────────────── */
+.vision{
+  background:var(--color-hwl-blue);
+  color:#fff;
+  position:relative;overflow:hidden;
+  isolation:isolate;
+}
+.vision::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 60% at 80% 0%,hsla(0,0%,100%,.10) 0%,transparent 60%),
+    radial-gradient(50% 50% at 0% 100%,hsla(3,80%,49%,.18) 0%,transparent 60%);
+}
+.vision__quote{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2rem,4.5vw,3.5rem);
+  line-height:1.1;letter-spacing:-.015em;
+  margin:0 0 24px;max-width:18ch;
+}
+.vision__body{
+  font-size:1.0625rem;opacity:.92;max-width:640px;
+  line-height:1.6;
+}
+
+/* ─────────────────────────────────────────
+   CTA strip
+   ───────────────────────────────────────── */
+.cta-strip{
+  background:var(--color-gray-rlight);
+  text-align:center;
+}
+.cta-strip h2{margin-bottom:8px}
+.cta-strip p{color:var(--color-gray-medium);max-width:620px;margin:0 auto 28px;font-size:1.0625rem}
+.cta-strip__buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ─────────────────────────────────────────
+   Footer
+   ───────────────────────────────────────── */
+.site-footer{
+  background:var(--color-gray-dark);
+  color:hsla(0,0%,100%,.75);
+  padding:64px 0 32px;
+  font-size:.875rem;
+}
+.site-footer a{color:hsla(0,0%,100%,.75)}
+.site-footer a:hover{color:#fff}
+.footer__grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:48px;
+}
+.footer__brand{
+  font-family:var(--font-display);font-weight:700;font-size:1.25rem;
+  color:#fff;margin-bottom:12px;display:block;
+}
+.footer__group h5{
+  font-family:var(--font-display);font-weight:500;
+  color:#fff;text-transform:uppercase;letter-spacing:.12em;
+  font-size:.75rem;margin:0 0 14px;
+}
+.footer__group ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.footer__social{display:flex;gap:14px;margin-top:18px}
+.footer__social a{
+  width:36px;height:36px;border-radius:50%;
+  background:hsla(0,0%,100%,.08);
+  display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:700;font-size:.75rem;
+  color:#fff;
+}
+.footer__social a:hover{background:var(--color-hwl-red);text-decoration:none}
+.footer__base{
+  display:flex;justify-content:space-between;gap:24px;
+  border-top:1px solid hsla(0,0%,100%,.12);
+  padding-top:24px;flex-wrap:wrap;
+}
+.footer__base ul{list-style:none;padding:0;margin:0;display:flex;gap:24px;flex-wrap:wrap}
+@media (max-width:768px){
+  .footer__grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media (max-width:560px){
+  .footer__grid{grid-template-columns:1fr}
+}
+
+/* Concept-mode helper badge */
+.concept-badge{
+  position:fixed;bottom:16px;right:16px;z-index:100;
+  background:var(--color-hwl-red);color:#fff;
+  padding:8px 14px;border-radius:999px;
+  font-family:var(--font-body);font-size:.75rem;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 8px 24px -8px hsla(3,80%,30%,.5);
+}
+</style>
+</head>
+<body>
+
+<!-- ────────────── HEADER ────────────── -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="#" class="site-logo" aria-label="Hellmann Worldwide Logistics">
+      <span class="site-logo__mark">H</span>
+      <span>HELLMANN</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="#offices">Offices</a>
+      <a class="site-nav__link" href="#products">Products</a>
+      <a class="site-nav__link" href="#industries">Industries</a>
+      <a class="site-nav__link" href="#contact">Contact</a>
+      <span class="lang-pill">Spain · EN</span>
+      <a class="site-nav__cta" href="#contact">Let's Do Business</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ────────────── HERO ────────────── -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1920&q=80" alt="" loading="eager">
+  </div>
+  <div class="hero__inner">
+    <span class="hero__eyebrow">Hellmann Worldwide Logistics</span>
+    <h1>Spain — your gateway between the Iberian Peninsula and the world.</h1>
+    <p class="hero__lede">
+      Four locations, 160 local experts, and the global reach of 489 offices in 173 countries.
+      From Barcelona to Bilbao, we move what matters for the industries shaping Spain.
+    </p>
+    <div class="hero__cta">
+      <a class="button --primary" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff" href="#contact">
+        Let's Do Business <span class="arrow">→</span>
+      </a>
+      <a class="button --outlined" style="color:#fff;border-color:#fff" href="#offices">Find a local office</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── INTRO ────────────── -->
+<section class="intro">
+  <div class="container">
+    <span class="section-eyebrow">Welcome to Hellmann Spain</span>
+    <h2>Local roots. Global reach. Built for Iberia.</h2>
+    <p class="intro__lede">
+      Since 1999, Hellmann has been building Spain's logistics network from the ground up — placing offices where industry actually lives.
+      Today, our country team connects the manufacturing corridors of Catalonia and the Basque Country, the fashion capitals of Madrid and Barcelona,
+      and the renewable energy hubs of Valencia and Andalusia with the rest of the world.
+    </p>
+    <div class="intro__body">
+      <p>
+        Spain isn't a single market — it's four economies in one country, each with its own port, its own industry mix, and its own rhythm.
+        Our four locations are positioned to match that reality, not paper over it.
+      </p>
+      <p>
+        We're a family-owned forwarder operating in a market dominated by global giants — and we like it that way.
+        Local decisions, faster answers, and a 150-year company history behind every shipment.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── FACTS ────────────── -->
+<section class="facts">
+  <div class="container">
+    <span class="section-eyebrow">Hellmann Spain in numbers</span>
+    <h2>A country team built for industry.</h2>
+    <div class="facts__grid">
+      <div class="facts__item">
+        <div class="facts__number">1999</div>
+        <div class="facts__label">Founded</div>
+        <div class="facts__sub">25+ years on the ground</div>
+      </div>
+      <div class="facts__item">
+        <div class="facts__number">160</div>
+        <div class="facts__label">Employees</div>
+        <div class="facts__sub">Local experts across Iberia</div>
+      </div>
+      <div class="facts__item">
+        <div class="facts__number">4</div>
+        <div class="facts__label">Locations</div>
+        <div class="facts__sub">Barcelona · Madrid · Bilbao · Valencia</div>
+      </div>
+      <div class="facts__item">
+        <div class="facts__number">489</div>
+        <div class="facts__label">Global offices</div>
+        <div class="facts__sub">In 173 countries — your reach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── LOCATIONS ────────────── -->
+<section id="offices">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="section-eyebrow">Our offices</span>
+        <h2>Four locations, four specialisations.</h2>
+      </div>
+      <p>Each Hellmann Spain office is positioned where its industry actually operates — not just where the map shows a city.</p>
+    </div>
+    <div class="locations__grid">
+      <article class="location-card">
+        <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=900&q=80" alt="Barcelona port">
+        <div class="location-card__body">
+          <div class="location-card__city">Barcelona</div>
+          <div class="location-card__role">Mediterranean gateway — sea freight, fashion supply chain, cruise &amp; perishables.</div>
+        </div>
+      </article>
+      <article class="location-card">
+        <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&q=80" alt="Madrid">
+        <div class="location-card__body">
+          <div class="location-card__city">Madrid</div>
+          <div class="location-card__role">National HQ — air freight via Barajas, contract logistics, country-wide road network.</div>
+        </div>
+      </article>
+      <article class="location-card">
+        <img src="https://images.unsplash.com/photo-1577147443647-81856d5151af?w=900&q=80" alt="Bilbao port">
+        <div class="location-card__body">
+          <div class="location-card__city">Bilbao</div>
+          <div class="location-card__role">Atlantic corridor — automotive, industrial heavy haul, Northern Spain &amp; Portugal road links.</div>
+        </div>
+      </article>
+      <article class="location-card">
+        <img src="https://images.unsplash.com/photo-1551634979-2b11f8c946fe?w=900&q=80" alt="Valencia">
+        <div class="location-card__body">
+          <div class="location-card__city">Valencia</div>
+          <div class="location-card__role">Europe's busiest Med port — renewable energy projects, consumer goods, citrus &amp; reefer.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── CONTACT ────────────── -->
+<section id="contact" class="contact-band">
+  <div class="container">
+    <span class="section-eyebrow" style="color:hsla(0,0%,100%,.7)">Talk to your local team</span>
+    <h2>Let's do business in Spain.</h2>
+    <p style="opacity:.85;max-width:620px;font-size:1.0625rem">
+      Whether you're moving freight into Iberia or out to the world, your first call goes to a person — not a portal.
+    </p>
+    <div class="contact-card">
+      <div class="contact-card__photo" aria-hidden="true">ES</div>
+      <div>
+        <div class="contact-card__name">Country Manager Spain</div>
+        <div class="contact-card__title">Managing Director · Hellmann Worldwide Logistics Spain</div>
+        <div class="contact-card__meta">spain@hellmann.com · +34 93 XXX XX XX · Madrid HQ</div>
+      </div>
+      <a class="button --primary" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff" href="#">
+        Get in touch <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── PRODUCTS ────────────── -->
+<section id="products">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="section-eyebrow">Our products in Spain</span>
+        <h2>Four modes. One coordinated network.</h2>
+      </div>
+      <p>End-to-end coverage across air, sea, road and contract logistics — orchestrated from a single Spanish account team.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Air Freight</h3>
+          <p class="card__copy">Daily consolidations through Madrid Barajas and Barcelona El Prat. Time-critical capacity to the Americas, Asia, and intra-Europe — including charter solutions for project cargo.</p>
+          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1494412574745-e8bda5bf2607?w=900&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Sea Freight</h3>
+          <p class="card__copy">FCL and LCL services from Spain's busiest Mediterranean ports — Valencia, Barcelona, Algeciras — and Atlantic hubs at Bilbao. Direct services to LATAM, North Africa, and the Far East.</p>
+          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Road Freight</h3>
+          <p class="card__copy">Full-load and groupage across Iberia and into Europe. Daily departures linking Madrid, Catalonia, the Basque Country, Valencia, and Portugal to Hellmann's European network.</p>
+          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Contract Logistics</h3>
+          <p class="card__copy">Warehousing, value-added services and fulfilment from strategic locations in Madrid and Barcelona. Built for fashion, consumer goods, and high-mix manufacturing.</p>
+          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── INDUSTRY SOLUTIONS ────────────── -->
+<section id="industries" style="background:var(--color-gray-rlight)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="section-eyebrow">Industry Solutions</span>
+        <h2>Built around the industries that shape Spain.</h2>
+      </div>
+      <p>Spain's economy isn't generic — and our service model isn't either. These four industries account for the largest share of our Spanish volume.</p>
+    </div>
+    <div class="card-grid --two-by-two">
+      <article class="card --industry">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1597007030739-6d2e7172ee6f?w=1200&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Automotive</h3>
+          <p class="card__copy">From the SEAT and Ford plants of Catalonia and Valencia to the German OEM tier-1 suppliers in the Basque Country — JIT inbound, finished-vehicle distribution, and aftermarket parts.</p>
+          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="card --industry">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Fashion</h3>
+          <p class="card__copy">Spain is the home of fast fashion at global scale. Our Barcelona and Madrid teams handle store replenishment, e-commerce fulfilment, and the reverse logistics that the sector depends on.</p>
+          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="card --industry">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Consumer Goods</h3>
+          <p class="card__copy">Cross-border distribution into Spain &amp; Portugal, reefer chains for food and beverage, and the warehousing footprint to support omnichannel retail.</p>
+          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="card --industry">
+        <div class="card__image"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80" alt=""></div>
+        <div class="card__body">
+          <h3 class="card__title">Renewable Energy</h3>
+          <p class="card__copy">Spain leads Europe in solar and wind capacity. We move blades, towers, transformers, and PV modules from manufacturer to project site — including the heavy-haul road permits that come with them.</p>
+          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── FEATURE: IBERIA ↔ LATAM ────────────── -->
+<section class="feature">
+  <div class="container">
+    <div class="feature__grid">
+      <div class="feature__visual">
+        <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1200&q=80" alt="">
+      </div>
+      <div class="feature__body">
+        <span class="section-eyebrow">Spotlight · Iberia ↔ LATAM corridor</span>
+        <h2>Europe's natural gateway to Latin America runs through Spain.</h2>
+        <p>Shared language, deep historical trade ties, and the densest direct shipping and air-cargo schedules between Europe and LATAM all land at Spanish ports and airports first. We've built a dedicated desk to make that advantage usable.</p>
+        <ul>
+          <li>Weekly FCL/LCL services from Valencia and Algeciras to Mexico, Brazil, Chile, and Argentina.</li>
+          <li>Spanish-language customer service from Madrid, mirroring time zones for Mexico and South America.</li>
+          <li>Customs and trade compliance expertise for AEO, EUR.1, and EUR-MED preferential origin.</li>
+          <li>Local-to-local handoff through Hellmann's offices across 16 LATAM countries.</li>
+        </ul>
+        <a class="button --primary" href="#contact">Talk to the LATAM desk <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── VISION ────────────── -->
+<section class="vision">
+  <div class="container">
+    <span class="section-eyebrow" style="color:hsla(0,0%,100%,.7)">The Hellmann Promise</span>
+    <p class="vision__quote">For the better. Together.</p>
+    <p class="vision__body">
+      Hellmann was founded in 1871 and is still owned by the Hellmann family. We carry that into every market we operate in —
+      including Spain. Caring, entrepreneurial, appreciative, empowering, respectful, sustainable, passionate. Seven values, one promise.
+    </p>
+  </div>
+</section>
+
+<!-- ────────────── CTA STRIP ────────────── -->
+<section class="cta-strip">
+  <div class="container">
+    <span class="section-eyebrow">Ready when you are</span>
+    <h2>Move your business through Spain — with people who know it.</h2>
+    <p>A 15-minute call with our country team is enough to map your first lane. No portal, no ticket queue.</p>
+    <div class="cta-strip__buttons">
+      <a class="button --primary" href="#contact">Let's Do Business <span class="arrow">→</span></a>
+      <a class="button --outlined" href="#offices">Find your nearest office</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── FOOTER ────────────── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="#" class="footer__brand">HELLMANN</a>
+        <p style="max-width:38ch">Hellmann Worldwide Logistics, founded in 1871, is one of the largest family-owned international logistics providers — with 489 offices in 173 countries.</p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Xing">X</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div class="footer__group">
+        <h5>Hellmann Spain</h5>
+        <ul>
+          <li><a href="#offices">Offices</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__group">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#">Air Freight</a></li>
+          <li><a href="#">Sea Freight</a></li>
+          <li><a href="#">Road Freight</a></li>
+          <li><a href="#">Contract Logistics</a></li>
+        </ul>
+      </div>
+      <div class="footer__group">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">Portal Login</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Whistleblowing</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <div>© 2026 Hellmann Worldwide Logistics — concept page for Spain.</div>
+      <ul>
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Cookie Settings</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="concept-badge" aria-hidden="true">Concept · v1</div>
+
+</body>
+</html>
