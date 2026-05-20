@@ -3,8 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Spain | Hellmann Worldwide Logistics — Concept</title>
-<meta name="description" content="Concept landing page for Hellmann Worldwide Logistics Spain — connecting Iberia to global trade through air, sea, road, and contract logistics.">
+
+<!-- Primary SEO -->
+<title>Hellmann Spain | International Freight Forwarding and Logistics</title>
+<meta name="description" content="Hellmann Worldwide Logistics Spain provides airfreight, seafreight, road, rail and contract logistics from offices in Barcelona, Madrid, Bilbao and Valencia.">
+<meta name="keywords" content="Hellmann Spain, freight forwarding Spain, logistics Spain, airfreight Spain, seafreight Spain, contract logistics Spain, Barcelona logistics, Madrid logistics, Bilbao logistics, Valencia logistics">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Hellmann Worldwide Logistics">
+<link rel="canonical" href="https://www.hellmann.com/en/spain">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.hellmann.com/en/spain">
+<meta property="og:title" content="Hellmann Spain | International Freight Forwarding and Logistics">
+<meta property="og:description" content="Hellmann Worldwide Logistics Spain provides airfreight, seafreight, road, rail and contract logistics from offices in Barcelona, Madrid, Bilbao and Valencia.">
+<meta property="og:image" content="https://www.hellmann.com/sites/default/files/styles/hwl_key_image_hero_2x/public/2026-01/spain-hero.jpg">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Hellmann Worldwide Logistics">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hellmann Spain | International Freight Forwarding and Logistics">
+<meta name="twitter:description" content="Airfreight, seafreight, road, rail and contract logistics from offices in Barcelona, Madrid, Bilbao and Valencia.">
+<meta name="twitter:image" content="https://www.hellmann.com/sites/default/files/styles/hwl_key_image_hero_2x/public/2026-01/spain-hero.jpg">
+
+<!-- JSON-LD: Organization + LocalBusiness for the Spanish subsidiary -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.hellmann.com/#organization",
+      "name": "Hellmann Worldwide Logistics",
+      "url": "https://www.hellmann.com",
+      "logo": "https://www.hellmann.com/themes/hwl/assets/images/logo.svg",
+      "foundingDate": "1871",
+      "sameAs": [
+        "https://www.linkedin.com/company/hellmann-worldwide-logistics",
+        "https://en.wikipedia.org/wiki/Hellmann_Worldwide_Logistics"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.hellmann.com/en/spain/#localbusiness",
+      "name": "Hellmann Worldwide Logistics Spain",
+      "parentOrganization": { "@id": "https://www.hellmann.com/#organization" },
+      "description": "International freight forwarding and contract logistics services across Spain. Founded in 1999, Hellmann Spain operates from four locations with 160 local specialists.",
+      "url": "https://www.hellmann.com/en/spain",
+      "areaServed": { "@type": "Country", "name": "Spain" },
+      "foundingDate": "1999",
+      "numberOfEmployees": "160",
+      "location": [
+        { "@type": "Place", "name": "Barcelona", "address": { "@type": "PostalAddress", "addressLocality": "El Prat de Llobregat", "addressRegion": "Barcelona", "addressCountry": "ES" } },
+        { "@type": "Place", "name": "Madrid", "address": { "@type": "PostalAddress", "addressLocality": "San Fernando de Henares", "addressRegion": "Madrid", "addressCountry": "ES" } },
+        { "@type": "Place", "name": "Bilbao", "address": { "@type": "PostalAddress", "addressLocality": "Bilbao", "addressRegion": "Biscay", "addressCountry": "ES" } },
+        { "@type": "Place", "name": "Valencia", "address": { "@type": "PostalAddress", "addressLocality": "Valencia", "addressRegion": "Valencia", "addressCountry": "ES" } }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Logistics Services",
+        "itemListElement": [
+          { "@type": "OfferCatalog", "name": "Airfreight" },
+          { "@type": "OfferCatalog", "name": "Seafreight" },
+          { "@type": "OfferCatalog", "name": "Road and Rail Freight" },
+          { "@type": "OfferCatalog", "name": "Contract Logistics" }
+        ]
+      }
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -314,14 +383,13 @@ p{margin:0 0 1em}
 .industry-card__link:hover{text-decoration:underline}
 
 /* ─── Feature (text + image side-by-side, mirrors "New Airfreight Consolidation") ─── */
-.paragraph--text_and_image .feature__grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
-}
+.paragraph--text_and_image .c-grid{align-items:center}
 .feature__visual{
-  border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;
-  background:var(--color-hwl-blue);
+  border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:4/3;background:var(--color-hwl-blue);width:100%;
 }
 .feature__visual img{width:100%;height:100%;object-fit:cover}
+.feature__body{padding-right:24px}
 .feature__body ul{display:grid;gap:10px;margin:16px 0 24px}
 .feature__body li{
   font-size:15px;color:var(--color-gray-dark);
@@ -331,7 +399,7 @@ p{margin:0 0 1em}
   content:"";position:absolute;left:0;top:9px;
   width:8px;height:8px;border-radius:50%;background:var(--color-hwl-red);
 }
-@media (max-width:1024px){.paragraph--text_and_image .feature__grid{grid-template-columns:1fr;gap:24px}}
+@media (max-width:1024px){.feature__body{padding-right:0}}
 
 /* ─── Quote / Vision (paragraph--quote_vision) ─────────────────── */
 .paragraph--quote_vision{
@@ -459,7 +527,7 @@ p{margin:0 0 1em}
     </nav>
     <h1>Hellmann Spain</h1>
     <p class="hero__lede">
-      Your gateway between the Iberian Peninsula and the world. Four locations, 160 local experts, and the global reach of Hellmann's 489 offices in 173 countries.
+      International freight forwarding and contract logistics across the Iberian Peninsula. Operating from four offices in Barcelona, Madrid, Bilbao and Valencia, supported by the worldwide network of Hellmann Worldwide Logistics.
     </p>
     <div class="hero__cta">
       <a class="button --frosty" href="#contact">Let's Do Business</a>
@@ -478,11 +546,11 @@ p{margin:0 0 1em}
       <!-- LEFT 7/12 — paragraph--text -->
       <div class="paragraph paragraph--column c-column md:w-7/12 w-full ml-0">
         <div class="paragraph paragraph--text text">
-          <h2 class="field--field-headline w-full">Welcome to Hellmann Spain — local roots, global reach.</h2>
+          <h2 class="field--field-headline w-full">Welcome to Hellmann Spain</h2>
           <div class="field--field-text">
-            <p>Since 1999, Hellmann has been building Spain's logistics network from the ground up — placing offices where industry actually lives. Today our country team connects the manufacturing corridors of Catalonia and the Basque Country, the fashion capitals of Madrid and Barcelona, and the renewable-energy hubs of Valencia and Andalusia with the rest of the world.</p>
-            <p>Spain isn't a single market — it's four economies in one country, each with its own port, its own industry mix, and its own rhythm. Our four locations are positioned to match that reality, not paper over it.</p>
-            <p>We're a family-owned forwarder operating in a market dominated by global giants — and we like it that way. Local decisions, faster answers, and 150+ years of company history behind every shipment.</p>
+            <p>Hellmann Worldwide Logistics established its Spanish country organisation in 1999. From four locations in Barcelona, Madrid, Bilbao and Valencia, our 160 local specialists provide end-to-end logistics services for inbound, outbound and domestic shipments across the Iberian Peninsula.</p>
+            <p>Our offices are positioned along Spain's principal trade corridors. The Mediterranean container ports of Barcelona and Valencia handle our seafreight volumes, Madrid Barajas anchors our airfreight operations, and Bilbao serves the Atlantic industrial corridor that connects Northern Spain and Portugal to the European hinterland.</p>
+            <p>As part of a family-owned group with more than 150 years of history and over 12,000 employees in 62 countries, Hellmann Spain combines local decision-making with the operational depth of a global network.</p>
           </div>
         </div>
       </div>
@@ -547,9 +615,9 @@ p{margin:0 0 1em}
               <div class="facts__sub">Barcelona · Madrid · Bilbao · Valencia</div>
             </div>
             <div class="facts__item">
-              <div class="facts__number">489</div>
-              <div class="facts__label">Global offices</div>
-              <div class="facts__sub">In 173 countries</div>
+              <div class="facts__number">12,000+</div>
+              <div class="facts__label">Global employees</div>
+              <div class="facts__sub">Across 62 countries worldwide</div>
             </div>
           </div>
         </div>
@@ -567,8 +635,8 @@ p{margin:0 0 1em}
     <div class="flex flex-wrap c-grid">
       <div class="paragraph paragraph--column c-column w-full ml-0">
         <div class="paragraph paragraph--headline headline">
-          <span class="section-eyebrow">Our Offices</span>
-          <h2 class="field--field-headline w-full">Four locations, four specialisations.</h2>
+          <span class="section-eyebrow">Our Offices in Spain</span>
+          <h2 class="field--field-headline w-full">Four locations, four areas of specialisation.</h2>
         </div>
       </div>
       <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
@@ -576,7 +644,7 @@ p{margin:0 0 1em}
           <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=900&q=80" alt="Barcelona">
           <div class="location-card__body">
             <div class="location-card__city">Barcelona</div>
-            <div class="location-card__role">Mediterranean gateway — sea freight, fashion supply chain, cruise &amp; perishables.</div>
+            <div class="location-card__role">Mediterranean port operations, container seafreight, and contract logistics for fashion and consumer goods.</div>
           </div>
         </article>
       </div>
@@ -585,7 +653,7 @@ p{margin:0 0 1em}
           <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&q=80" alt="Madrid">
           <div class="location-card__body">
             <div class="location-card__city">Madrid</div>
-            <div class="location-card__role">National HQ — air freight via Barajas, contract logistics, country-wide road network.</div>
+            <div class="location-card__role">National headquarters with airfreight operations through Madrid Barajas and contract logistics serving central Spain.</div>
           </div>
         </article>
       </div>
@@ -594,7 +662,7 @@ p{margin:0 0 1em}
           <img src="https://images.unsplash.com/photo-1577147443647-81856d5151af?w=900&q=80" alt="Bilbao">
           <div class="location-card__body">
             <div class="location-card__city">Bilbao</div>
-            <div class="location-card__role">Atlantic corridor — automotive, industrial heavy haul, Northern Spain &amp; Portugal road links.</div>
+            <div class="location-card__role">Atlantic corridor operations, automotive industry support, and overland transport to Northern Spain and Portugal.</div>
           </div>
         </article>
       </div>
@@ -603,7 +671,7 @@ p{margin:0 0 1em}
           <img src="https://images.unsplash.com/photo-1551634979-2b11f8c946fe?w=900&q=80" alt="Valencia">
           <div class="location-card__body">
             <div class="location-card__city">Valencia</div>
-            <div class="location-card__role">Europe's busiest Med port — renewable energy projects, consumer goods, citrus &amp; reefer.</div>
+            <div class="location-card__role">Container handling at one of Europe's busiest Mediterranean ports, with specialist capacity for project cargo and reefer.</div>
           </div>
         </article>
       </div>
@@ -620,19 +688,19 @@ p{margin:0 0 1em}
     <div class="flex flex-wrap c-grid">
       <div class="paragraph paragraph--column c-column w-full ml-0">
         <div class="paragraph paragraph--headline headline">
-          <span class="section-eyebrow">Our Products in Spain</span>
-          <h2 class="field--field-headline w-full">Four modes. One coordinated network.</h2>
+          <span class="section-eyebrow">Our Products and Services</span>
+          <h2 class="field--field-headline w-full">End-to-end logistics across every mode of transport.</h2>
         </div>
       </div>
       <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
         <article class="card">
           <div class="card__image"><img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=80" alt=""></div>
           <div class="card__body">
-            <h3 class="card__title">Air Freight</h3>
+            <h3 class="card__title">Airfreight</h3>
             <ul class="card__bullets">
-              <li>Daily consolidations via Madrid Barajas &amp; Barcelona El Prat</li>
-              <li>Time-critical capacity to Americas, Asia &amp; intra-EU</li>
-              <li>Charter solutions for project cargo</li>
+              <li>Daily consolidations via Madrid Barajas and Barcelona El Prat</li>
+              <li>Time-critical capacity to the Americas, Asia and intra-European destinations</li>
+              <li>Charter solutions available for project cargo</li>
             </ul>
             <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
           </div>
@@ -642,11 +710,11 @@ p{margin:0 0 1em}
         <article class="card">
           <div class="card__image"><img src="https://images.unsplash.com/photo-1494412574745-e8bda5bf2607?w=900&q=80" alt=""></div>
           <div class="card__body">
-            <h3 class="card__title">Sea Freight</h3>
+            <h3 class="card__title">Seafreight</h3>
             <ul class="card__bullets">
-              <li>FCL &amp; LCL from Valencia, Barcelona, Algeciras, Bilbao</li>
-              <li>Direct services to LATAM, North Africa, Far East</li>
-              <li>Reefer chains &amp; project cargo</li>
+              <li>Full container load (FCL) and less-than-container load (LCL) services from Valencia, Barcelona, Algeciras and Bilbao</li>
+              <li>Direct services to Latin America, North Africa and the Far East</li>
+              <li>Temperature-controlled chains and project cargo handling</li>
             </ul>
             <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
           </div>
@@ -656,11 +724,11 @@ p{margin:0 0 1em}
         <article class="card">
           <div class="card__image"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80" alt=""></div>
           <div class="card__body">
-            <h3 class="card__title">Road Freight</h3>
+            <h3 class="card__title">Road and Rail</h3>
             <ul class="card__bullets">
-              <li>Full-load &amp; groupage across Iberia and into Europe</li>
-              <li>Daily departures from Madrid, Catalonia, Basque Country, Valencia</li>
-              <li>Integrated with Hellmann's European network</li>
+              <li>Full-load and groupage services across Iberia and into the European network</li>
+              <li>Daily departures from Madrid, Catalonia, the Basque Country and Valencia</li>
+              <li>Fixed transit times, door-to-door delivery, and ADR-compliant equipment for hazardous goods</li>
             </ul>
             <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
           </div>
@@ -672,9 +740,9 @@ p{margin:0 0 1em}
           <div class="card__body">
             <h3 class="card__title">Contract Logistics</h3>
             <ul class="card__bullets">
-              <li>Warehousing &amp; fulfilment in Madrid and Barcelona</li>
-              <li>Value-added services for fashion &amp; consumer goods</li>
-              <li>High-mix manufacturing support</li>
+              <li>Warehousing and fulfilment from strategic locations in Madrid and Barcelona</li>
+              <li>Value-added services configured for fashion and consumer goods</li>
+              <li>Support for high-mix manufacturing and aftermarket distribution</li>
             </ul>
             <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
           </div>
@@ -696,34 +764,34 @@ p{margin:0 0 1em}
         <div class="paragraph paragraph--column c-column w-full ml-0">
           <div class="paragraph paragraph--headline headline">
             <span class="section-eyebrow">Industry Solutions</span>
-            <h2 class="field--field-headline w-full">Built around the industries that shape Spain.</h2>
+            <h2 class="field--field-headline w-full">Industries we serve in Spain.</h2>
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
           <div class="industry-card">
             <h3 class="industry-card__title">Automotive</h3>
-            <p class="industry-card__copy">From the SEAT and Ford plants of Catalonia and Valencia to German OEM tier-1 suppliers in the Basque Country — JIT inbound, finished-vehicle distribution, and aftermarket parts.</p>
+            <p class="industry-card__copy">Logistics support for original equipment manufacturers and tier-one suppliers across Catalonia, Valencia and the Basque Country. Services cover just-in-time inbound logistics, finished-vehicle distribution and aftermarket parts.</p>
             <a class="industry-card__link" href="#">Industry insights →</a>
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
           <div class="industry-card">
             <h3 class="industry-card__title">Fashion</h3>
-            <p class="industry-card__copy">Spain is the home of fast fashion at global scale. Our Barcelona and Madrid teams handle store replenishment, e-commerce fulfilment, and the reverse logistics that the sector depends on.</p>
+            <p class="industry-card__copy">Spain is home to several of the world's largest fashion exporters. Our Barcelona and Madrid teams manage store replenishment, e-commerce fulfilment and reverse logistics for both domestic and international brands.</p>
             <a class="industry-card__link" href="#">Industry insights →</a>
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
           <div class="industry-card">
             <h3 class="industry-card__title">Consumer Goods</h3>
-            <p class="industry-card__copy">Cross-border distribution into Spain &amp; Portugal, reefer chains for food and beverage, and the warehousing footprint to support omnichannel retail at scale.</p>
+            <p class="industry-card__copy">Cross-border distribution into Spain and Portugal, temperature-controlled chains for food and beverage, and warehousing infrastructure that supports omnichannel retail operations.</p>
             <a class="industry-card__link" href="#">Industry insights →</a>
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
           <div class="industry-card">
             <h3 class="industry-card__title">Renewable Energy</h3>
-            <p class="industry-card__copy">Spain leads Europe in solar and wind capacity. We move blades, towers, transformers, and PV modules from manufacturer to project site — including the heavy-haul road permits that come with them.</p>
+            <p class="industry-card__copy">Spain is one of Europe's largest markets for installed solar and wind capacity. We transport blades, towers, transformers and photovoltaic modules from manufacturer to project site, including the heavy-haul road permits required.</p>
             <a class="industry-card__link" href="#">Industry insights →</a>
           </div>
         </div>
@@ -739,25 +807,25 @@ p{margin:0 0 1em}
      ─────────────────────────────────────────────────────────────── -->
 <div class="paragraph paragraph--section mt-lg paragraph--text_and_image">
   <div class="paragraph paragraph--grid container">
-    <div class="feature__grid">
+    <div class="flex flex-wrap c-grid">
       <!-- text column -->
       <div class="paragraph paragraph--column c-column md:w-6/12 w-full feature__body">
         <span class="section-eyebrow">Spotlight</span>
-        <h2 class="field--field-headline w-full">Europe's gateway to Latin America runs through Spain.</h2>
-        <p>Shared language, deep historical trade ties, and the densest direct shipping and air-cargo schedules between Europe and LATAM all land at Spanish ports and airports first. We've built a dedicated desk to make that advantage usable.</p>
+        <h2 class="field--field-headline w-full">The Iberia and Latin America corridor.</h2>
+        <p>Spain's shared language with Latin America and its long-standing commercial ties make it the European point of entry for many transatlantic supply chains. Hellmann Spain operates a dedicated desk to manage shipments between Iberian ports and the Hellmann offices located in 16 Latin American countries.</p>
         <ul>
-          <li>Weekly FCL/LCL services from Valencia and Algeciras to Mexico, Brazil, Chile, Argentina.</li>
-          <li>Spanish-language customer service from Madrid, mirroring LATAM time zones.</li>
-          <li>Customs &amp; trade compliance expertise — AEO, EUR.1, EUR-MED preferential origin.</li>
-          <li>Local-to-local handoff via Hellmann's offices across 16 LATAM countries.</li>
+          <li>Weekly FCL and LCL departures from Valencia and Algeciras to Mexico, Brazil, Chile and Argentina.</li>
+          <li>Spanish-language customer service from Madrid, aligned with Latin American business hours.</li>
+          <li>Customs and trade-compliance expertise covering AEO certification, EUR.1 movement certificates and EUR-MED preferential origin documentation.</li>
+          <li>Origin-to-destination handover through Hellmann offices across 16 Latin American countries.</li>
         </ul>
-        <a class="button --primary" href="#contact">Talk to the LATAM desk</a>
+        <a class="button --primary" href="#contact">Contact our LATAM desk</a>
       </div>
       <!-- image column -->
       <div class="paragraph paragraph--column c-column md:w-6/12 w-full">
         <div class="paragraph paragraph--image image">
           <div class="feature__visual">
-            <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1200&q=80" alt="">
+            <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1200&q=80" alt="Container port operations in Spain">
           </div>
         </div>
       </div>
@@ -773,14 +841,14 @@ p{margin:0 0 1em}
   <div class="paragraph paragraph--grid container" style="position:relative;z-index:1">
     <div class="flex flex-wrap c-grid">
       <div class="paragraph paragraph--column c-column md:w-7/12 w-full ml-0">
-        <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">Talk to your local team</span>
-        <h2 class="field--field-headline w-full" style="color:#fff">Let's do business in Spain.</h2>
+        <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">Get in touch</span>
+        <h2 class="field--field-headline w-full" style="color:#fff">Do business with Hellmann Spain.</h2>
         <p style="font-size:17px;opacity:.92;max-width:560px;color:#fff">
-          Whether you're moving freight into Iberia or out to the world, your first call goes to a person — not a portal.
+          Whether your shipment is inbound to the Iberian Peninsula or outbound to global markets, Hellmann Spain provides a single point of contact and end-to-end accountability.
         </p>
       </div>
       <div class="paragraph paragraph--column c-column md:w-4/12 w-full ml-1/12" style="display:flex;align-items:center">
-        <a class="button --primary" href="mailto:spain@hellmann.com" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff;width:100%">Get in touch</a>
+        <a class="button --primary" href="mailto:spain@hellmann.com" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff;width:100%">Contact our Spain team</a>
       </div>
     </div>
   </div>
@@ -794,7 +862,7 @@ p{margin:0 0 1em}
     <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">The Hellmann Promise</span>
     <p class="quote_vision__quote">For the better. Together.</p>
     <p class="quote_vision__body">
-      Founded in 1871 and still owned by the Hellmann family, we carry that promise into every market we operate in — including Spain.
+      Hellmann Worldwide Logistics was founded in 1871 and remains under family ownership. Across every market we operate, including Spain, we apply the same set of values that have guided the company for more than 150 years.
     </p>
     <div class="quote_vision__values" aria-label="Hellmann values">
       <span>Caring</span><span>Entrepreneurial</span><span>Appreciative</span>
@@ -811,7 +879,7 @@ p{margin:0 0 1em}
     <div class="footer__grid">
       <div>
         <a href="#" class="footer__brand">HELLMANN</a>
-        <p style="max-width:38ch">Hellmann Worldwide Logistics, founded in 1871, is one of the largest family-owned international logistics providers — with 489 offices in 173 countries.</p>
+        <p style="max-width:38ch">Hellmann Worldwide Logistics, founded in 1871, is one of the largest family-owned international logistics providers, with over 12,000 employees and a presence in 62 countries worldwide.</p>
         <div class="footer__social" aria-label="Social media">
           <a href="#" aria-label="LinkedIn">in</a>
           <a href="#" aria-label="Instagram">IG</a>
@@ -849,7 +917,7 @@ p{margin:0 0 1em}
       </div>
     </div>
     <div class="footer__base">
-      <div>© 2026 Hellmann Worldwide Logistics — concept page for Spain.</div>
+      <div>© 2026 Hellmann Worldwide Logistics. Concept page for Spain.</div>
       <ul>
         <li><a href="#">Legal</a></li>
         <li><a href="#">Privacy</a></li>
