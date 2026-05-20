@@ -87,19 +87,24 @@
 @font-face{font-family:'Univia';font-weight:700;font-display:swap;
   src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/Univia-Bold.woff2') format('woff2');}
 
-/* ─── Tokens (exact values from live hellmann.com CSS) ───────────── */
+/* ─── Tokens (EXACT values from official Hellmann Styleguide) ──── */
 :root{
-  --color-hwl-blue: rgb(0,77,153);            /* hsl(210,100%,30%) */
-  --color-hwl-blue-dark: rgb(0,55,110);
-  --color-hwl-red:  hsl(3,80%,49%);
-  --color-primary:  var(--color-hwl-blue);
-  --color-secondary:var(--color-hwl-red);
-  --color-white:#fff;
-  --color-gray-dark:    hsl(210,9%,23%);      /* ≈ #363D44 */
-  --color-gray-medium:  hsl(210,35%,36%);     /* ≈ #3C5C7C */
-  --color-gray-light:   hsl(210,19%,74%);     /* ≈ #B6C2CF */
-  --color-gray-rlight:  hsl(210,19%,94%);     /* ≈ #EBEFF2 */
-  --font-display:'Univia','Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  /* Primary brand */
+  --color-hwl-blue:      #004C99;                 /* Hellmann Blue */
+  --color-hwl-blue-dark: #003A75;
+  --color-hwl-red:       #E32119;                 /* Hellmann Red (Pantone 485) */
+  --color-sustainability-green: #00B140;          /* Sustainability accent */
+  --color-primary:   var(--color-hwl-blue);
+  --color-secondary: var(--color-hwl-red);
+  --color-white: #fff;
+  /* Neutrals from styleguide */
+  --color-gray-dark:    #343A3F;
+  --color-gray-medium:  #3C5B7B;
+  --color-gray-light:   #B1BDCA;
+  --color-gray-rlight:  #ECEFF2;
+  --color-gray-warm:    #5C5C60;
+  /* Typography — Univia from production site, canto-font from styleguide, Manrope as web-safe fallback */
+  --font-display:'canto-font','Univia','Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   --font-body:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   --container-max:1280px;
   --grid-gap:24px;
@@ -207,12 +212,21 @@ p{margin:0 0 1em}
   padding:14px 24px;max-width:var(--container-max);margin:0 auto;
 }
 .site-logo{
-  display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;
+  display:inline-flex;align-items:center;gap:10px;
   text-decoration:none;line-height:1;flex-shrink:0;
+}
+.site-logo__mark{
+  display:inline-grid;place-items:center;
+  width:36px;height:36px;flex-shrink:0;
+  color:var(--color-hwl-blue);
+}
+.site-logo__mark svg{width:100%;height:100%;display:block}
+.site-logo__wordmark{
+  display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;
 }
 .site-logo__brand{
   font-family:var(--font-display);font-weight:700;font-size:26px;
-  color:#E22118;letter-spacing:-.02em;line-height:1;
+  color:var(--color-hwl-red);letter-spacing:-.02em;line-height:1;
 }
 .site-logo__tagline{
   font-family:var(--font-body);font-weight:700;font-size:9px;
@@ -414,6 +428,9 @@ p{margin:0 0 1em}
   transition:transform .25s ease,box-shadow .25s ease;
 }
 .industry-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px -16px rgba(0,40,80,.18)}
+/* Sustainability accent — Renewable Energy uses the green from the styleguide */
+.industry-card.--sustainability{border-top-color:var(--color-sustainability-green)}
+.industry-card.--sustainability .industry-card__link{color:var(--color-sustainability-green)}
 .industry-card__title{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--color-gray-dark);margin-bottom:10px}
 .industry-card__copy{font-size:14px;line-height:1.55;color:var(--color-gray-medium);margin:0 0 12px;flex:1}
 .industry-card__link{
@@ -647,8 +664,21 @@ p{margin:0 0 1em}
 <header class="site-header">
   <div class="site-header__inner">
     <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics — back to home">
-      <span class="site-logo__brand">hellmann</span>
-      <span class="site-logo__tagline">Worldwide Logistics</span>
+      <span class="site-logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <!-- Wild geese silhouette in flight (3 simplified V-shapes for the flock) -->
+          <g fill="currentColor">
+            <path d="M11.5 22.5 L15.2 18.4 L17 21 L18.8 18.4 L22.5 22.5 L20 21.8 L18.8 23 L17 21.7 L15.2 23 L14 21.8 Z"/>
+            <path d="M22.5 17.8 L25.2 14.8 L26.5 16.7 L27.8 14.8 L30.5 17.8 L28.7 17.3 L27.8 18.2 L26.5 17.3 L25.2 18.2 L24.3 17.3 Z"/>
+            <path d="M16.5 14.5 L19 12 L20 13.5 L21 12 L23.5 14.5 L22.2 14.2 L21 15 L20 14.2 L18.8 15 L17.8 14.2 Z"/>
+          </g>
+        </svg>
+      </span>
+      <span class="site-logo__wordmark">
+        <span class="site-logo__brand">hellmann</span>
+        <span class="site-logo__tagline">Worldwide Logistics</span>
+      </span>
     </a>
     <form class="site-header__search" role="search" onsubmit="event.preventDefault();window.location='https://www.hellmann.com/en/search/node?keys='+encodeURIComponent(this.elements[0].value);">
       <input type="search" placeholder="Search &amp; find" aria-label="Search hellmann.com">
@@ -966,7 +996,7 @@ p{margin:0 0 1em}
           </div>
         </div>
         <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
-          <div class="industry-card">
+          <div class="industry-card --sustainability">
             <h3 class="industry-card__title">Renewable Energy</h3>
             <p class="industry-card__copy">Spain is one of Europe's largest markets for installed solar and wind capacity. We transport blades, towers, transformers and photovoltaic modules from manufacturer to project site, including the heavy-haul road permits required.</p>
             <a class="industry-card__link" href="https://www.hellmann.com/en/industry-solutions/renewable-energy-logistics">Industry insights →</a>
@@ -1092,8 +1122,20 @@ p{margin:0 0 1em}
   <!-- Mini-header at the top of the footer (matches real hellmann.com pattern) -->
   <div class="site-footer__top">
     <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics — home">
-      <span class="site-logo__brand">hellmann</span>
-      <span class="site-logo__tagline">Worldwide Logistics</span>
+      <span class="site-logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <g fill="currentColor">
+            <path d="M11.5 22.5 L15.2 18.4 L17 21 L18.8 18.4 L22.5 22.5 L20 21.8 L18.8 23 L17 21.7 L15.2 23 L14 21.8 Z"/>
+            <path d="M22.5 17.8 L25.2 14.8 L26.5 16.7 L27.8 14.8 L30.5 17.8 L28.7 17.3 L27.8 18.2 L26.5 17.3 L25.2 18.2 L24.3 17.3 Z"/>
+            <path d="M16.5 14.5 L19 12 L20 13.5 L21 12 L23.5 14.5 L22.2 14.2 L21 15 L20 14.2 L18.8 15 L17.8 14.2 Z"/>
+          </g>
+        </svg>
+      </span>
+      <span class="site-logo__wordmark">
+        <span class="site-logo__brand">hellmann</span>
+        <span class="site-logo__tagline">Worldwide Logistics</span>
+      </span>
     </a>
     <form class="site-header__search" role="search" onsubmit="event.preventDefault();window.location='https://www.hellmann.com/en/search/node?keys='+encodeURIComponent(this.elements[0].value);">
       <input type="search" placeholder="Search &amp; find" aria-label="Search hellmann.com">
@@ -1140,8 +1182,20 @@ p{margin:0 0 1em}
   <!-- Bottom: brand + copyright -->
   <div class="site-footer__copyright">
     <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics">
-      <span class="site-logo__brand">hellmann</span>
-      <span class="site-logo__tagline">Worldwide Logistics</span>
+      <span class="site-logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <g fill="currentColor">
+            <path d="M11.5 22.5 L15.2 18.4 L17 21 L18.8 18.4 L22.5 22.5 L20 21.8 L18.8 23 L17 21.7 L15.2 23 L14 21.8 Z"/>
+            <path d="M22.5 17.8 L25.2 14.8 L26.5 16.7 L27.8 14.8 L30.5 17.8 L28.7 17.3 L27.8 18.2 L26.5 17.3 L25.2 18.2 L24.3 17.3 Z"/>
+            <path d="M16.5 14.5 L19 12 L20 13.5 L21 12 L23.5 14.5 L22.2 14.2 L21 15 L20 14.2 L18.8 15 L17.8 14.2 Z"/>
+          </g>
+        </svg>
+      </span>
+      <span class="site-logo__wordmark">
+        <span class="site-logo__brand">hellmann</span>
+        <span class="site-logo__tagline">Worldwide Logistics</span>
+      </span>
     </a>
     <p>© 2026 Hellmann Worldwide Logistics · Concept page for Spain</p>
   </div>
