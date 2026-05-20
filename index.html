@@ -3,591 +3,418 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hellmann Worldwide Logistics Spain | Concept</title>
+<title>Spain | Hellmann Worldwide Logistics — Concept</title>
 <meta name="description" content="Concept landing page for Hellmann Worldwide Logistics Spain — connecting Iberia to global trade through air, sea, road, and contract logistics.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Manrope:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+
 <style>
-/* Univia from Hellmann CDN (with Manrope/Roboto fallback) */
-@font-face{
-  font-family:'Univia';
-  font-weight:500;
-  font-display:swap;
-  src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/univiapro-medium-webfont.woff2') format('woff2');
-}
-@font-face{
-  font-family:'Univia';
-  font-weight:700;
-  font-display:swap;
-  src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/Univia-Bold.woff2') format('woff2');
-}
+/* ─── Univia (from hellmann.com CDN, Manrope fallback) ───────────── */
+@font-face{font-family:'Univia';font-weight:500;font-display:swap;
+  src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/univiapro-medium-webfont.woff2') format('woff2');}
+@font-face{font-family:'Univia';font-weight:700;font-display:swap;
+  src:url('https://www.hellmann.com/themes/hwl/assets/fonts/univia/Univia-Bold.woff2') format('woff2');}
 
-/* ─────────────────────────────────────────
-   Hellmann design tokens (sourced from hellmann.com live CSS)
-   ───────────────────────────────────────── */
+/* ─── Tokens (exact values from live hellmann.com CSS) ───────────── */
 :root{
-  --h-hwl-blue:210; --s-hwl-blue:100%; --l-hwl-blue:30%;
-  --h-hwl-red:3;    --s-hwl-red:80%;   --l-hwl-red:49%;
-
-  --color-hwl-blue: hsl(var(--h-hwl-blue),var(--s-hwl-blue),var(--l-hwl-blue));
-  --color-hwl-red:  hsl(var(--h-hwl-red),var(--s-hwl-red),var(--l-hwl-red));
+  --color-hwl-blue: rgb(0,77,153);            /* hsl(210,100%,30%) */
+  --color-hwl-blue-dark: rgb(0,55,110);
+  --color-hwl-red:  hsl(3,80%,49%);
   --color-primary:  var(--color-hwl-blue);
   --color-secondary:var(--color-hwl-red);
-
   --color-white:#fff;
-  --color-gray-dark:    hsl(var(--h-hwl-blue),9%,23%);
-  --color-gray-medium:  hsl(var(--h-hwl-blue),35%,36%);
-  --color-gray-light:   hsl(var(--h-hwl-blue),19%,74%);
-  --color-gray-rlight:  hsl(var(--h-hwl-blue),19%,94%);
-  --color-black:#000;
-
-  --font-display:'Univia','Manrope','Inter',system-ui,sans-serif;
-  --font-body:'Roboto',system-ui,sans-serif;
-
+  --color-gray-dark:    hsl(210,9%,23%);      /* ≈ #363D44 */
+  --color-gray-medium:  hsl(210,35%,36%);     /* ≈ #3C5C7C */
+  --color-gray-light:   hsl(210,19%,74%);     /* ≈ #B6C2CF */
+  --color-gray-rlight:  hsl(210,19%,94%);     /* ≈ #EBEFF2 */
+  --font-display:'Univia','Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  --font-body:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   --container-max:1280px;
   --grid-gap:24px;
-  --spacing-base:80px;
-  --spacing-small:48px;
-  --border-radius-medium:12px;
-  --border-radius-large:24px;
+  --spacing-base:64px;
+  --spacing-lg:96px;
+  --radius:5px;
+  --radius-lg:12px;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:var(--font-body);
-  font-weight:400;
-  color:var(--color-gray-dark);
-  background:var(--color-white);
-  line-height:1.6;
+  margin:0;font-family:var(--font-body);
+  font-size:16px;line-height:1.6;font-weight:400;
+  color:var(--color-gray-dark);background:var(--color-white);
   -webkit-font-smoothing:antialiased;
 }
-
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;height:auto}
 a{color:var(--color-hwl-blue);text-decoration:none}
 a:hover{text-decoration:underline}
+ol,ul{padding:0;margin:0;list-style:none}
 
+/* Display type — Univia for headlines (exact spec from live h1: 48px/60px/700) */
 h1,h2,h3,h4{
   font-family:var(--font-display);
-  font-weight:700;
-  color:var(--color-gray-dark);
-  margin:0 0 .5em;
-  line-height:1.15;
-  letter-spacing:-.01em;
+  font-weight:700;color:var(--color-gray-dark);
+  margin:0 0 .5em;line-height:1.25;letter-spacing:normal;
 }
-h1{font-size:clamp(2.25rem,5vw,3.75rem)}
-h2{font-size:clamp(1.75rem,3.5vw,2.5rem)}
-h3{font-size:1.5rem}
-h4{font-size:1.125rem;font-weight:500}
+h1{font-size:48px;line-height:60px;margin-bottom:48px}
+h2{font-size:32px;line-height:1.2;margin-bottom:24px}
+h3{font-size:22px;line-height:1.3;margin-bottom:12px}
+h4{font-size:18px;font-weight:500;line-height:1.4}
 p{margin:0 0 1em}
 
-.container{
-  max-width:var(--container-max);
-  margin:0 auto;
-  padding:0 24px;
+@media (max-width:768px){
+  h1{font-size:32px;line-height:40px;margin-bottom:24px}
+  h2{font-size:24px}
 }
 
-/* ─────────────────────────────────────────
-   Buttons (mirrors .button.--primary / .--outlined)
-   ───────────────────────────────────────── */
+/* ─── Utility shim mirroring their Tailwind classes ──────────────── */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 24px}
+.flex{display:flex}.flex-wrap{flex-wrap:wrap}.flex-row{flex-direction:row}
+.flex-1{flex:1 1 0%}.justify-between{justify-content:space-between}
+.items-center{align-items:center}.items-end{align-items:flex-end}
+.w-full{width:100%}.ml-0{margin-left:0}.mt-0{margin-top:0}
+.mt-sm{margin-top:16px}.mt-md{margin-top:32px}.mt-lg{margin-top:64px}
+.mb-sm{margin-bottom:8px}.mb-md{margin-bottom:24px}.mb-lg{margin-bottom:48px}
+.p-md{padding:24px}.p-lg{padding:32px}
+.text-center{text-align:center}.text-white{color:#fff}
+.uppercase{text-transform:uppercase;letter-spacing:.1em}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Grid (12 col, gutter via gap) */
+.c-grid{display:flex;flex-wrap:wrap;gap:var(--grid-gap);margin:0}
+.c-column{flex:0 0 auto}
+/* Tailwind-style fractional widths (md: breakpoint = 768px+) */
+@media (min-width:768px){
+  .md\:w-3\/12{width:calc(25% - var(--grid-gap)*3/4)}
+  .md\:w-4\/12{width:calc(33.333% - var(--grid-gap)*2/3)}
+  .md\:w-5\/12{width:calc(41.666% - var(--grid-gap)*7/12)}
+  .md\:w-6\/12{width:calc(50% - var(--grid-gap)/2)}
+  .md\:w-7\/12{width:calc(58.333% - var(--grid-gap)*5/12)}
+  .md\:w-8\/12{width:calc(66.666% - var(--grid-gap)/3)}
+  .md\:w-1\/2{width:calc(50% - var(--grid-gap)/2)}
+}
+.ml-1\/12{margin-left:0}
+@media (min-width:768px){.ml-1\/12{margin-left:8.333%}}
+
+/* ─── Paragraph base ────────────────────────────────────────────── */
+.paragraph{position:relative}
+.paragraph--section{padding:var(--spacing-base) 0}
+.paragraph--section.mt-lg{margin-top:0;padding-top:var(--spacing-lg)}
+.paragraph--grid{}
+.paragraph--column{}
+.paragraph--text .field--field-text p{font-size:17px;line-height:1.65;color:var(--color-gray-dark)}
+.paragraph--text .field--field-text p:last-child{margin-bottom:0}
+.paragraph--headline h2.field--field-headline{margin-bottom:32px}
+
+/* ─── Buttons (exact from live site: 14px/700/uppercase/1.4px ls/5px radius) ─── */
 .button{
-  display:inline-flex;
-  align-items:center;
-  gap:.5em;
-  min-width:200px;
-  padding:14px 28px;
-  font-family:var(--font-display);
-  font-size:.9375rem;
-  font-weight:500;
-  letter-spacing:.02em;
-  text-decoration:none;
-  border:2px solid transparent;
-  border-radius:999px;
-  cursor:pointer;
-  transition:opacity .2s,background-color .2s,border-color .2s;
-  justify-content:center;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-body);
+  padding:14px 20px;font-size:14px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.4px;
+  border:2px solid transparent;border-radius:var(--radius);
+  cursor:pointer;text-decoration:none;transition:opacity .2s,background-color .2s,color .2s;
+  line-height:1.2;
 }
-.button.--primary{
-  background:var(--color-hwl-blue);
-  color:var(--color-white);
-  border-color:var(--color-hwl-blue);
+.button:hover{text-decoration:none;opacity:.85}
+.button.--primary{background:var(--color-hwl-blue);color:#fff;border-color:var(--color-hwl-blue);min-width:0}
+.button.--outlined{background:transparent;color:var(--color-hwl-blue);border-color:var(--color-hwl-blue)}
+.button.--outlined:hover{background:var(--color-hwl-blue);color:#fff;opacity:1}
+.button.--frosty{
+  background:rgba(255,255,255,.3);color:#fff;border-color:#fff;min-width:250px;
 }
-.button.--primary:hover{opacity:.85;text-decoration:none}
-.button.--outlined{
-  background:transparent;
-  color:var(--color-hwl-blue);
-  border-color:var(--color-hwl-blue);
-}
-.button.--outlined:hover{background:var(--color-hwl-blue);color:#fff;text-decoration:none}
-.button .arrow{display:inline-block;transition:transform .2s}
-.button:hover .arrow{transform:translateX(4px)}
+.button.--frosty:hover{background:rgba(255,255,255,.45);opacity:1}
 
-/* ─────────────────────────────────────────
-   Header / nav
-   ───────────────────────────────────────── */
+/* ─── Header / top nav ──────────────────────────────────────────── */
 .site-header{
-  position:sticky;top:0;z-index:50;
-  background:var(--color-white);
+  position:sticky;top:0;z-index:50;background:#fff;
   border-bottom:1px solid var(--color-gray-rlight);
-  backdrop-filter:saturate(180%) blur(8px);
 }
 .site-header__inner{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 24px;
-  max-width:var(--container-max);margin:0 auto;
+  padding:14px 24px;max-width:var(--container-max);margin:0 auto;
 }
 .site-logo{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:1.25rem;
-  color:var(--color-hwl-blue);
-  letter-spacing:-.02em;
   display:flex;align-items:center;gap:10px;
+  font-family:var(--font-display);font-weight:700;font-size:18px;
+  color:var(--color-hwl-blue);letter-spacing:.02em;
 }
 .site-logo__mark{
-  width:32px;height:32px;border-radius:6px;
-  background:var(--color-hwl-blue);
-  display:grid;place-items:center;
-  color:#fff;font-size:.85rem;font-weight:700;
-  letter-spacing:-.05em;
+  width:28px;height:28px;border-radius:4px;background:var(--color-hwl-blue);
+  color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700;
 }
-.site-nav{display:flex;align-items:center;gap:28px}
-.site-nav__link{
-  font-family:var(--font-body);
-  font-size:.9375rem;
-  font-weight:500;
-  color:var(--color-gray-dark);
-}
-.site-nav__cta{
-  background:var(--color-hwl-blue);
-  color:#fff !important;
-  padding:10px 22px;border-radius:999px;
-  font-weight:500;font-size:.875rem;
-}
-.site-nav__cta:hover{opacity:.85;text-decoration:none}
-.lang-pill{
-  font-family:var(--font-body);
-  font-size:.8125rem;
-  font-weight:500;
-  color:var(--color-gray-medium);
-  border:1px solid var(--color-gray-light);
-  border-radius:999px;
-  padding:6px 12px;
-}
-@media (max-width:768px){
-  .site-nav{display:none}
-  .site-nav.lang-pill{display:inline-block}
-}
+.site-nav{display:flex;align-items:center;gap:24px}
+.site-nav__link{font-size:14px;font-weight:500;color:var(--color-gray-dark);font-family:var(--font-body)}
+.site-nav__icons{display:flex;gap:14px;align-items:center;color:var(--color-gray-medium)}
+.site-nav__icons a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:inherit;font-size:14px}
+.site-nav__icons a:hover{background:var(--color-gray-rlight);text-decoration:none}
+@media (max-width:1024px){.site-nav__link{display:none}}
 
-/* ─────────────────────────────────────────
-   Hero (.hero.--full-image)
-   ───────────────────────────────────────── */
+/* ─── Hero (.hero.--full-image) ────────────────────────────────── */
 .hero{
-  position:relative;
-  min-height:560px;
-  display:flex;align-items:flex-end;
-  color:#fff;
-  overflow:hidden;
-  isolation:isolate;
+  position:relative;overflow:hidden;color:#fff;
+  min-height:600px;display:flex;align-items:flex-end;
+  background:var(--color-hwl-blue-dark);
 }
-.hero__bg{
-  position:absolute;inset:0;z-index:-2;
-  background:linear-gradient(135deg,var(--color-hwl-blue),hsl(210,100%,18%));
+.hero__image{
+  position:absolute;inset:0;z-index:0;
 }
-.hero__bg img{
-  width:100%;height:100%;object-fit:cover;
-  opacity:.55;
+.hero__image img{
+  width:100%;height:100%;object-fit:cover;opacity:.95;
 }
-.hero__bg::after{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,hsla(210,100%,15%,.3) 0%,hsla(210,100%,12%,.85) 100%);
+.hero__image::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,40,80,.35) 0%,rgba(0,30,60,.65) 100%);
 }
 .hero__inner{
-  padding:80px 24px;
-  max-width:var(--container-max);
-  margin:0 auto;
-  width:100%;
+  position:relative;z-index:1;width:100%;padding:120px 24px 48px;
 }
-.hero__eyebrow{
-  font-family:var(--font-body);
-  font-weight:500;
-  font-size:.875rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  opacity:.9;
-  margin-bottom:16px;
-  display:inline-block;
-  padding-bottom:6px;
-  border-bottom:2px solid var(--color-hwl-red);
-}
-.hero h1{color:#fff;max-width:920px}
+.breadcrumb{margin-bottom:24px}
+.breadcrumb__list{display:flex;align-items:center;gap:10px;font-size:14px}
+.breadcrumb__item{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;font-size:13px}
+.breadcrumb__item a,.breadcrumb__item span{color:#fff}
+.breadcrumb__icon{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.hero h1{color:#fff;max-width:920px;margin-bottom:24px}
 .hero__lede{
-  font-size:clamp(1.0625rem,1.5vw,1.25rem);
-  max-width:680px;
-  opacity:.92;
-  margin-bottom:32px;
+  font-size:18px;line-height:1.6;max-width:580px;
+  color:#fff;opacity:.95;margin-bottom:32px;
 }
 .hero__cta{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ─────────────────────────────────────────
-   Section base
-   ───────────────────────────────────────── */
-section{padding:var(--spacing-base) 0}
-section.--tight{padding:var(--spacing-small) 0}
-.section-eyebrow{
-  font-family:var(--font-body);
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:.8125rem;
-  font-weight:500;
-  color:var(--color-hwl-red);
-  margin-bottom:14px;
-  display:block;
+/* ─── Person card (.person.--teaser) ────────────────────────────── */
+.person{
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+  background:#fff;border:1px solid var(--color-gray-rlight);
+  border-radius:var(--radius-lg);padding:20px;
+  box-shadow:0 4px 16px -8px rgba(0,40,80,.08);
+}
+.person__image{flex:0 0 80px}
+.person__image img{width:80px;height:80px;border-radius:50%;object-fit:cover;background:var(--color-gray-rlight)}
+.person__image--placeholder{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--color-hwl-blue);
+  display:grid;place-items:center;color:#fff;
+  font-family:var(--font-display);font-weight:700;font-size:24px;
+}
+.person__data{flex:1 1 0%}
+.person__name{margin:0 0 2px;font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--color-gray-dark)}
+.person__name strong{font-weight:700}
+.person__position{margin:0 0 10px;font-size:13px;color:var(--color-gray-medium);font-weight:500}
+.person__contacts{display:flex;flex-direction:column;gap:6px}
+.person__link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--color-hwl-blue);font-weight:500;
+}
+.person__link:hover{text-decoration:underline}
+.icon.--circled{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--color-hwl-blue);color:#fff;
+  display:grid;place-items:center;font-size:13px;flex-shrink:0;
 }
 
-/* ─────────────────────────────────────────
-   Intro
-   ───────────────────────────────────────── */
-.intro__lede{
-  font-size:1.25rem;
-  color:var(--color-gray-medium);
-  max-width:780px;
-  line-height:1.55;
+/* ─── Callout block (Find your Local Office) ────────────────────── */
+.callout{
+  margin-top:24px;
+  background:linear-gradient(135deg,var(--color-hwl-blue) 0%,var(--color-hwl-blue-dark) 100%);
+  color:#fff;border-radius:var(--radius-lg);
+  padding:24px;
 }
-.intro__body{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:48px;margin-top:32px;
-}
-.intro__body p{color:var(--color-gray-dark);font-size:1.0625rem}
-@media (max-width:768px){
-  .intro__body{grid-template-columns:1fr;gap:24px}
-}
+.callout h3{color:#fff;margin-bottom:16px;font-size:20px}
+.callout .button{background:#fff;color:var(--color-hwl-blue);border-color:#fff;width:100%}
+.callout .button:hover{background:rgba(255,255,255,.9);opacity:1}
 
-/* ─────────────────────────────────────────
-   Facts (.facts.--appearance-framed_big)
-   ───────────────────────────────────────── */
-.facts{background:var(--color-gray-rlight)}
-.facts__grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:var(--grid-gap);
-}
-.facts__item{
+/* ─── Facts (.paragraph--facts.--appearance-framed_big) ────────── */
+.paragraph--facts{padding:24px 0}
+.paragraph--facts.--appearance-framed_big .facts__wrapper{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:2.5px solid var(--color-gray-light);border-radius:var(--radius-lg);
   background:#fff;
-  border:2.5px solid var(--color-gray-light);
-  border-radius:var(--border-radius-medium);
-  padding:36px 24px;
-  text-align:center;
 }
+.paragraph--facts .facts__item{
+  text-align:center;padding:32px 16px;
+  border-right:1px solid var(--color-gray-rlight);
+}
+.paragraph--facts .facts__item:last-child{border-right:none}
 .facts__number{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:clamp(2.5rem,4.5vw,3.5rem);
-  color:var(--color-hwl-blue);
-  line-height:1;
-  margin-bottom:8px;
+  font-family:var(--font-display);font-weight:700;
+  font-size:44px;line-height:1;color:var(--color-hwl-blue);margin-bottom:6px;
 }
-.facts__label{
-  font-family:var(--font-display);
-  font-weight:500;
-  font-size:1.0625rem;
-  color:var(--color-gray-dark);
-  margin-bottom:6px;
-}
-.facts__sub{
-  font-size:.875rem;
-  color:var(--color-gray-medium);
-}
+.facts__label{font-family:var(--font-display);font-weight:500;font-size:15px;color:var(--color-gray-dark);margin-bottom:4px}
+.facts__sub{font-size:12px;color:var(--color-gray-medium);text-transform:uppercase;letter-spacing:.08em}
 @media (max-width:768px){
-  .facts__grid{grid-template-columns:repeat(2,1fr)}
+  .paragraph--facts.--appearance-framed_big .facts__wrapper{grid-template-columns:repeat(2,1fr)}
+  .paragraph--facts .facts__item:nth-child(2){border-right:none}
+  .paragraph--facts .facts__item:nth-child(1),.paragraph--facts .facts__item:nth-child(2){border-bottom:1px solid var(--color-gray-rlight)}
 }
 
-/* ─────────────────────────────────────────
-   Locations grid (4 cities)
-   ───────────────────────────────────────── */
-.locations__grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:var(--grid-gap);
-  margin-top:40px;
+/* ─── Related Content / Card grid (paragraph--related_content) ──── */
+.card{
+  display:flex;flex-direction:column;height:100%;
+  background:#fff;border:1px solid var(--color-gray-rlight);
+  border-radius:var(--radius);overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
 }
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -16px rgba(0,40,80,.18);border-color:var(--color-gray-light)}
+.card .image,.card__image{aspect-ratio:16/10;overflow:hidden;background:var(--color-gray-rlight)}
+.card .image img,.card__image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .image img,.card:hover .card__image img{transform:scale(1.04)}
+.card__body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card__title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--color-gray-dark);margin:0}
+.card__copy{font-size:14px;line-height:1.55;color:var(--color-gray-medium);margin:0}
+.card__bullets{list-style:none;padding:0;margin:8px 0 12px;display:grid;gap:6px}
+.card__bullets li{font-size:13px;color:var(--color-gray-medium);padding-left:14px;position:relative;line-height:1.4}
+.card__bullets li::before{content:"›";position:absolute;left:0;color:var(--color-hwl-blue);font-weight:700}
+.card__link{
+  margin-top:auto;
+  font-family:var(--font-body);font-size:13px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.4px;
+  color:var(--color-hwl-blue);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.card__link:hover{text-decoration:underline}
+.card__link .arrow{transition:transform .2s}
+.card:hover .card__link .arrow{transform:translateX(3px)}
+
+/* Location card (image-bg variant) */
 .location-card{
-  position:relative;
-  border-radius:var(--border-radius-medium);
-  overflow:hidden;
-  aspect-ratio:3/4;
-  background:var(--color-gray-medium);
-  isolation:isolate;
-  transition:transform .25s ease;
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:4/5;background:var(--color-gray-medium);
+  isolation:isolate;transition:transform .25s ease;
 }
-.location-card:hover{transform:translateY(-4px)}
+.location-card:hover{transform:translateY(-3px)}
 .location-card img{
   width:100%;height:100%;object-fit:cover;
   position:absolute;inset:0;z-index:-2;
 }
 .location-card::after{
   content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,transparent 30%,hsla(210,100%,15%,.95) 100%);
+  background:linear-gradient(180deg,transparent 40%,rgba(0,40,80,.92) 100%);
 }
-.location-card__body{
-  position:absolute;inset:auto 0 0 0;
-  padding:24px;color:#fff;
-}
-.location-card__city{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:1.5rem;
-  margin-bottom:4px;
-}
-.location-card__role{
-  font-size:.875rem;
-  opacity:.92;
-  line-height:1.45;
-}
-@media (max-width:1024px){
-  .locations__grid{grid-template-columns:repeat(2,1fr)}
-}
+.location-card__body{position:absolute;inset:auto 0 0 0;padding:20px;color:#fff}
+.location-card__city{font-family:var(--font-display);font-weight:700;font-size:22px;margin-bottom:4px}
+.location-card__role{font-size:13px;line-height:1.5;opacity:.92}
 
-/* ─────────────────────────────────────────
-   Contact card (.contact-person)
-   ───────────────────────────────────────── */
-.contact-band{background:var(--color-hwl-blue);color:#fff}
-.contact-band h2{color:#fff}
-.contact-card{
-  display:grid;
-  grid-template-columns:180px 1fr auto;
-  gap:32px;align-items:center;
-  background:hsla(0,0%,100%,.08);
-  border:1px solid hsla(0,0%,100%,.15);
-  border-radius:var(--border-radius-large);
-  padding:32px;
-  margin-top:32px;
-  backdrop-filter:blur(8px);
-}
-.contact-card__photo{
-  width:160px;height:160px;border-radius:50%;
-  background:hsla(0,0%,100%,.15);
-  display:grid;place-items:center;
-  font-family:var(--font-display);font-weight:700;font-size:2.5rem;color:#fff;
-  border:2px solid hsla(0,0%,100%,.25);
-}
-.contact-card__name{
-  font-family:var(--font-display);font-weight:700;
-  font-size:1.5rem;margin-bottom:2px;color:#fff;
-}
-.contact-card__title{opacity:.85;font-size:.9375rem;margin-bottom:6px}
-.contact-card__meta{font-size:.875rem;opacity:.75}
-@media (max-width:768px){
-  .contact-card{grid-template-columns:1fr;text-align:center;justify-items:center}
-  .contact-card .button{width:100%}
-}
-
-/* ─────────────────────────────────────────
-   Products & Industries grid (.--landscape cards)
-   ───────────────────────────────────────── */
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:8px;flex-wrap:wrap}
-.section-head p{max-width:560px;color:var(--color-gray-medium);font-size:1.0625rem;margin:0}
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:var(--grid-gap);
-  margin-top:40px;
-}
-.card-grid.--two-by-two{grid-template-columns:repeat(2,1fr)}
-@media (max-width:1024px){
-  .card-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:560px){
-  .card-grid{grid-template-columns:1fr}
-}
-
-.card{
+/* Industry card (text-only — matches Benelux "Expertise Across Sectors") */
+.industry-card{
+  background:#fff;border:1px solid var(--color-gray-rlight);
+  border-top:3px solid var(--color-hwl-red);
+  border-radius:var(--radius);padding:24px;height:100%;
   display:flex;flex-direction:column;
-  background:#fff;
-  border-radius:var(--border-radius-medium);
-  overflow:hidden;
-  border:1px solid var(--color-gray-rlight);
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  transition:transform .25s ease,box-shadow .25s ease;
 }
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 40px -20px hsla(210,100%,15%,.25);
-  border-color:var(--color-gray-light);
+.industry-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px -16px rgba(0,40,80,.18)}
+.industry-card__title{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--color-gray-dark);margin-bottom:10px}
+.industry-card__copy{font-size:14px;line-height:1.55;color:var(--color-gray-medium);margin:0 0 12px;flex:1}
+.industry-card__link{
+  font-family:var(--font-body);font-size:13px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.4px;color:var(--color-hwl-blue);
 }
-.card__image{
-  aspect-ratio:16/10;background:var(--color-gray-rlight);
-  position:relative;overflow:hidden;
-}
-.card__image img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .4s ease;
-}
-.card:hover .card__image img{transform:scale(1.04)}
-.card__body{padding:24px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card__title{
-  font-family:var(--font-display);font-weight:700;
-  font-size:1.25rem;color:var(--color-gray-dark);
-}
-.card__copy{
-  font-size:.9375rem;color:var(--color-gray-medium);
-  line-height:1.55;margin:0;
-}
-.card__link{
-  margin-top:auto;
-  font-family:var(--font-display);font-weight:500;
-  font-size:.9375rem;
-  color:var(--color-hwl-blue);
-  display:inline-flex;align-items:center;gap:.5em;
-  padding-top:12px;
-}
-.card__link .arrow{transition:transform .2s}
-.card:hover .card__link .arrow{transform:translateX(4px)}
+.industry-card__link:hover{text-decoration:underline}
 
-/* Industry card variant — accent border-top */
-.card.--industry{border-top:3px solid var(--color-hwl-red)}
-
-/* ─────────────────────────────────────────
-   Feature block (Iberia ↔ LATAM — slider text & image)
-   ───────────────────────────────────────── */
-.feature{
-  background:linear-gradient(180deg,var(--color-gray-rlight) 0%,#fff 100%);
-}
-.feature__grid{
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:64px;
-  align-items:center;
+/* ─── Feature (text + image side-by-side, mirrors "New Airfreight Consolidation") ─── */
+.paragraph--text_and_image .feature__grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
 }
 .feature__visual{
-  position:relative;border-radius:var(--border-radius-large);
-  overflow:hidden;aspect-ratio:4/3;
+  border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;
   background:var(--color-hwl-blue);
 }
 .feature__visual img{width:100%;height:100%;object-fit:cover}
-.feature__visual::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(135deg,transparent 50%,hsla(210,100%,30%,.4) 100%);
-}
-.feature__body ul{
-  list-style:none;padding:0;margin:24px 0 32px;
-  display:grid;gap:14px;
-}
+.feature__body ul{display:grid;gap:10px;margin:16px 0 24px}
 .feature__body li{
-  display:flex;gap:12px;align-items:flex-start;
-  font-size:1rem;color:var(--color-gray-dark);
+  font-size:15px;color:var(--color-gray-dark);
+  padding-left:20px;position:relative;line-height:1.5;
 }
 .feature__body li::before{
-  content:"";flex-shrink:0;
-  width:8px;height:8px;border-radius:50%;
-  background:var(--color-hwl-red);
-  margin-top:9px;
+  content:"";position:absolute;left:0;top:9px;
+  width:8px;height:8px;border-radius:50%;background:var(--color-hwl-red);
 }
-@media (max-width:1024px){
-  .feature__grid{grid-template-columns:1fr;gap:32px}
-}
+@media (max-width:1024px){.paragraph--text_and_image .feature__grid{grid-template-columns:1fr;gap:24px}}
 
-/* ─────────────────────────────────────────
-   Quote / Vision (.quote-vision)
-   ───────────────────────────────────────── */
-.vision{
-  background:var(--color-hwl-blue);
-  color:#fff;
-  position:relative;overflow:hidden;
-  isolation:isolate;
+/* ─── Quote / Vision (paragraph--quote_vision) ─────────────────── */
+.paragraph--quote_vision{
+  background:var(--color-hwl-blue);color:#fff;
+  padding:var(--spacing-lg) 0;position:relative;overflow:hidden;
 }
-.vision::before{
-  content:"";position:absolute;inset:0;z-index:-1;
+.paragraph--quote_vision::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(60% 60% at 80% 0%,hsla(0,0%,100%,.10) 0%,transparent 60%),
+    radial-gradient(60% 60% at 80% 0%,rgba(255,255,255,.08) 0%,transparent 60%),
     radial-gradient(50% 50% at 0% 100%,hsla(3,80%,49%,.18) 0%,transparent 60%);
 }
-.vision__quote{
+.quote_vision__quote{
   font-family:var(--font-display);font-weight:700;
-  font-size:clamp(2rem,4.5vw,3.5rem);
-  line-height:1.1;letter-spacing:-.015em;
-  margin:0 0 24px;max-width:18ch;
+  font-size:clamp(32px,4.5vw,52px);line-height:1.1;letter-spacing:-.01em;
+  margin:0 0 20px;max-width:18ch;color:#fff;
 }
-.vision__body{
-  font-size:1.0625rem;opacity:.92;max-width:640px;
-  line-height:1.6;
+.quote_vision__body{
+  font-size:17px;line-height:1.6;opacity:.92;max-width:640px;
+}
+.quote_vision__values{
+  display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;
+  font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;
+}
+.quote_vision__values span{opacity:.7}
+
+/* Section headline pattern */
+.section-eyebrow{
+  display:inline-block;font-family:var(--font-body);
+  font-size:13px;font-weight:700;color:var(--color-hwl-red);
+  text-transform:uppercase;letter-spacing:1.4px;margin-bottom:14px;
 }
 
-/* ─────────────────────────────────────────
-   CTA strip
-   ───────────────────────────────────────── */
-.cta-strip{
-  background:var(--color-gray-rlight);
-  text-align:center;
-}
-.cta-strip h2{margin-bottom:8px}
-.cta-strip p{color:var(--color-gray-medium);max-width:620px;margin:0 auto 28px;font-size:1.0625rem}
-.cta-strip__buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* Light gray section wrapper */
+.bg-rlight{background:var(--color-gray-rlight)}
 
-/* ─────────────────────────────────────────
-   Footer
-   ───────────────────────────────────────── */
+/* ─── Footer ───────────────────────────────────────────────────── */
 .site-footer{
-  background:var(--color-gray-dark);
-  color:hsla(0,0%,100%,.75);
-  padding:64px 0 32px;
-  font-size:.875rem;
+  background:var(--color-gray-dark);color:rgba(255,255,255,.75);
+  padding:56px 0 24px;font-size:14px;
 }
-.site-footer a{color:hsla(0,0%,100%,.75)}
+.site-footer a{color:rgba(255,255,255,.75)}
 .site-footer a:hover{color:#fff}
-.footer__grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:48px;margin-bottom:48px;
-}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
 .footer__brand{
-  font-family:var(--font-display);font-weight:700;font-size:1.25rem;
-  color:#fff;margin-bottom:12px;display:block;
+  font-family:var(--font-display);font-weight:700;font-size:18px;
+  color:#fff;margin-bottom:12px;display:inline-block;
 }
 .footer__group h5{
-  font-family:var(--font-display);font-weight:500;
-  color:#fff;text-transform:uppercase;letter-spacing:.12em;
-  font-size:.75rem;margin:0 0 14px;
+  font-family:var(--font-display);font-weight:500;color:#fff;
+  text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin:0 0 14px;
 }
-.footer__group ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-.footer__social{display:flex;gap:14px;margin-top:18px}
+.footer__group ul li{margin-bottom:8px}
+.footer__social{display:flex;gap:10px;margin-top:18px}
 .footer__social a{
-  width:36px;height:36px;border-radius:50%;
-  background:hsla(0,0%,100%,.08);
-  display:grid;place-items:center;
-  font-family:var(--font-display);font-weight:700;font-size:.75rem;
-  color:#fff;
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:11px;color:#fff;
 }
 .footer__social a:hover{background:var(--color-hwl-red);text-decoration:none}
 .footer__base{
-  display:flex;justify-content:space-between;gap:24px;
-  border-top:1px solid hsla(0,0%,100%,.12);
-  padding-top:24px;flex-wrap:wrap;
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.12);padding-top:24px;
 }
-.footer__base ul{list-style:none;padding:0;margin:0;display:flex;gap:24px;flex-wrap:wrap}
-@media (max-width:768px){
-  .footer__grid{grid-template-columns:1fr 1fr;gap:32px}
-}
-@media (max-width:560px){
-  .footer__grid{grid-template-columns:1fr}
-}
+.footer__base ul{display:flex;gap:20px;flex-wrap:wrap}
+@media (max-width:768px){.footer__grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:560px){.footer__grid{grid-template-columns:1fr}}
 
-/* Concept-mode helper badge */
+/* ─── Concept badge ───────────────────────────────────────────── */
 .concept-badge{
   position:fixed;bottom:16px;right:16px;z-index:100;
   background:var(--color-hwl-red);color:#fff;
-  padding:8px 14px;border-radius:999px;
-  font-family:var(--font-body);font-size:.75rem;font-weight:500;
-  letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 14px;border-radius:5px;
+  font-family:var(--font-body);font-size:11px;font-weight:700;
+  letter-spacing:1.4px;text-transform:uppercase;
   box-shadow:0 8px 24px -8px hsla(3,80%,30%,.5);
 }
 </style>
 </head>
 <body>
 
-<!-- ────────────── HEADER ────────────── -->
+<!-- ═══════════════════════════════════════════════════════════════
+     SITE HEADER (matches hellmann.com top bar)
+     ─────────────────────────────────────────────────────────────── -->
 <header class="site-header">
   <div class="site-header__inner">
     <a href="#" class="site-logo" aria-label="Hellmann Worldwide Logistics">
@@ -599,294 +426,386 @@ section.--tight{padding:var(--spacing-small) 0}
       <a class="site-nav__link" href="#products">Products</a>
       <a class="site-nav__link" href="#industries">Industries</a>
       <a class="site-nav__link" href="#contact">Contact</a>
-      <span class="lang-pill">Spain · EN</span>
-      <a class="site-nav__cta" href="#contact">Let's Do Business</a>
+      <div class="site-nav__icons" aria-hidden="true">
+        <a href="#" title="Search">🔍</a>
+        <a href="#" title="Login">👤</a>
+        <a href="#" title="Menu">☰</a>
+      </div>
     </nav>
   </div>
 </header>
 
-<!-- ────────────── HERO ────────────── -->
-<section class="hero">
-  <div class="hero__bg">
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO   (Drupal: <section class="hero --full-image">)
+     ─────────────────────────────────────────────────────────────── -->
+<section class="hero --full-image" id="top">
+  <div class="hero__image">
     <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1920&q=80" alt="" loading="eager">
   </div>
-  <div class="hero__inner">
-    <span class="hero__eyebrow">Hellmann Worldwide Logistics</span>
-    <h1>Spain — your gateway between the Iberian Peninsula and the world.</h1>
+  <div class="hero__inner container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+          <a href="#" title="Home">
+            <svg class="breadcrumb__icon" viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3.5,12 L3.5,21 C3.5,21.5522847 3.94771525,22 4.5,22 L9,22 C9.27614237,22 9.5,21.7761424 9.5,21.5 L9.5,17.5 C9.5,16.1192881 10.6192881,15 12,15 C13.3807119,15 14.5,16.1192881 14.5,17.5 L14.5,21.5 C14.5,21.7761424 14.7238576,22 15,22 L19.5,22 C20.0522847,22 20.5,21.5522847 20.5,21 L20.5,12.5"/>
+              <polyline points="0.5 11.5 12 0 23.5 11.5"/>
+            </svg>
+          </a>
+          <svg class="breadcrumb__icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
+        </li>
+        <li class="breadcrumb__item"><span>Spain</span></li>
+      </ol>
+    </nav>
+    <h1>Hellmann Spain</h1>
     <p class="hero__lede">
-      Four locations, 160 local experts, and the global reach of 489 offices in 173 countries.
-      From Barcelona to Bilbao, we move what matters for the industries shaping Spain.
+      Your gateway between the Iberian Peninsula and the world. Four locations, 160 local experts, and the global reach of Hellmann's 489 offices in 173 countries.
     </p>
     <div class="hero__cta">
-      <a class="button --primary" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff" href="#contact">
-        Let's Do Business <span class="arrow">→</span>
-      </a>
-      <a class="button --outlined" style="color:#fff;border-color:#fff" href="#offices">Find a local office</a>
+      <a class="button --frosty" href="#contact">Let's Do Business</a>
+      <a class="button --frosty" href="#offices">Find a Local Office</a>
     </div>
   </div>
 </section>
 
-<!-- ────────────── INTRO ────────────── -->
-<section class="intro">
-  <div class="container">
-    <span class="section-eyebrow">Welcome to Hellmann Spain</span>
-    <h2>Local roots. Global reach. Built for Iberia.</h2>
-    <p class="intro__lede">
-      Since 1999, Hellmann has been building Spain's logistics network from the ground up — placing offices where industry actually lives.
-      Today, our country team connects the manufacturing corridors of Catalonia and the Basque Country, the fashion capitals of Madrid and Barcelona,
-      and the renewable energy hubs of Valencia and Andalusia with the rest of the world.
-    </p>
-    <div class="intro__body">
-      <p>
-        Spain isn't a single market — it's four economies in one country, each with its own port, its own industry mix, and its own rhythm.
-        Our four locations are positioned to match that reality, not paper over it.
-      </p>
-      <p>
-        We're a family-owned forwarder operating in a market dominated by global giants — and we like it that way.
-        Local decisions, faster answers, and a 150-year company history behind every shipment.
-      </p>
+<!-- ═══════════════════════════════════════════════════════════════
+     WELCOME / INTRO SECTION
+     Drupal Paragraphs:  section > grid > column[7/12] (text) + column[4/12] (block.person + block.callout)
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section mt-lg">
+  <div class="paragraph paragraph--grid container">
+    <div class="flex flex-wrap c-grid">
+      <!-- LEFT 7/12 — paragraph--text -->
+      <div class="paragraph paragraph--column c-column md:w-7/12 w-full ml-0">
+        <div class="paragraph paragraph--text text">
+          <h2 class="field--field-headline w-full">Welcome to Hellmann Spain — local roots, global reach.</h2>
+          <div class="field--field-text">
+            <p>Since 1999, Hellmann has been building Spain's logistics network from the ground up — placing offices where industry actually lives. Today our country team connects the manufacturing corridors of Catalonia and the Basque Country, the fashion capitals of Madrid and Barcelona, and the renewable-energy hubs of Valencia and Andalusia with the rest of the world.</p>
+            <p>Spain isn't a single market — it's four economies in one country, each with its own port, its own industry mix, and its own rhythm. Our four locations are positioned to match that reality, not paper over it.</p>
+            <p>We're a family-owned forwarder operating in a market dominated by global giants — and we like it that way. Local decisions, faster answers, and 150+ years of company history behind every shipment.</p>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT 4/12 — paragraph--block (person) + paragraph--block (callout) -->
+      <div class="paragraph paragraph--column c-column md:w-4/12 w-full ml-1/12">
+        <div class="paragraph paragraph--block block">
+          <div class="field--field-block">
+            <div id="block-contact">
+              <div class="person c-grid flex --teaser flex-row flex-wrap">
+                <div class="person__image c-column">
+                  <div class="person__image--placeholder" aria-hidden="true">ES</div>
+                </div>
+                <div class="person__data c-column flex-1">
+                  <p class="person__name"><strong>Country Manager Spain</strong></p>
+                  <p class="person__position">Managing Director · Hellmann Spain</p>
+                  <div class="person__contacts">
+                    <a class="person__link --mail" href="mailto:spain@hellmann.com">
+                      <span class="icon --circled" aria-hidden="true">✉</span>
+                      <span>spain@hellmann.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="paragraph paragraph--block block">
+          <div class="field--field-block">
+            <div class="callout">
+              <h3>Find your Local Office</h3>
+              <a class="button --primary" href="#offices">Show offices</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── FACTS ────────────── -->
-<section class="facts">
-  <div class="container">
-    <span class="section-eyebrow">Hellmann Spain in numbers</span>
-    <h2>A country team built for industry.</h2>
-    <div class="facts__grid">
-      <div class="facts__item">
-        <div class="facts__number">1999</div>
-        <div class="facts__label">Founded</div>
-        <div class="facts__sub">25+ years on the ground</div>
-      </div>
-      <div class="facts__item">
-        <div class="facts__number">160</div>
-        <div class="facts__label">Employees</div>
-        <div class="facts__sub">Local experts across Iberia</div>
-      </div>
-      <div class="facts__item">
-        <div class="facts__number">4</div>
-        <div class="facts__label">Locations</div>
-        <div class="facts__sub">Barcelona · Madrid · Bilbao · Valencia</div>
-      </div>
-      <div class="facts__item">
-        <div class="facts__number">489</div>
-        <div class="facts__label">Global offices</div>
-        <div class="facts__sub">In 173 countries — your reach</div>
+<!-- ═══════════════════════════════════════════════════════════════
+     FACTS BAND   (Drupal: paragraph--facts --appearance-framed_big)
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section mt-lg">
+  <div class="paragraph paragraph--grid container">
+    <div class="flex flex-wrap c-grid">
+      <div class="paragraph paragraph--column c-column w-full ml-0">
+        <div class="paragraph paragraph--facts --appearance-framed_big">
+          <div class="facts__wrapper">
+            <div class="facts__item">
+              <div class="facts__number">1999</div>
+              <div class="facts__label">Founded</div>
+              <div class="facts__sub">25+ years on the ground</div>
+            </div>
+            <div class="facts__item">
+              <div class="facts__number">160</div>
+              <div class="facts__label">Employees</div>
+              <div class="facts__sub">Local experts across Iberia</div>
+            </div>
+            <div class="facts__item">
+              <div class="facts__number">4</div>
+              <div class="facts__label">Locations</div>
+              <div class="facts__sub">Barcelona · Madrid · Bilbao · Valencia</div>
+            </div>
+            <div class="facts__item">
+              <div class="facts__number">489</div>
+              <div class="facts__label">Global offices</div>
+              <div class="facts__sub">In 173 countries</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── LOCATIONS ────────────── -->
-<section id="offices">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="section-eyebrow">Our offices</span>
-        <h2>Four locations, four specialisations.</h2>
+<!-- ═══════════════════════════════════════════════════════════════
+     OUR OFFICES (Locations)
+     Drupal:  section > grid > [column.w-full headline] + 4×[column.md:w-3/12 location-card]
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section mt-lg" id="offices">
+  <div class="paragraph paragraph--grid container">
+    <div class="flex flex-wrap c-grid">
+      <div class="paragraph paragraph--column c-column w-full ml-0">
+        <div class="paragraph paragraph--headline headline">
+          <span class="section-eyebrow">Our Offices</span>
+          <h2 class="field--field-headline w-full">Four locations, four specialisations.</h2>
+        </div>
       </div>
-      <p>Each Hellmann Spain office is positioned where its industry actually operates — not just where the map shows a city.</p>
-    </div>
-    <div class="locations__grid">
-      <article class="location-card">
-        <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=900&q=80" alt="Barcelona port">
-        <div class="location-card__body">
-          <div class="location-card__city">Barcelona</div>
-          <div class="location-card__role">Mediterranean gateway — sea freight, fashion supply chain, cruise &amp; perishables.</div>
-        </div>
-      </article>
-      <article class="location-card">
-        <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&q=80" alt="Madrid">
-        <div class="location-card__body">
-          <div class="location-card__city">Madrid</div>
-          <div class="location-card__role">National HQ — air freight via Barajas, contract logistics, country-wide road network.</div>
-        </div>
-      </article>
-      <article class="location-card">
-        <img src="https://images.unsplash.com/photo-1577147443647-81856d5151af?w=900&q=80" alt="Bilbao port">
-        <div class="location-card__body">
-          <div class="location-card__city">Bilbao</div>
-          <div class="location-card__role">Atlantic corridor — automotive, industrial heavy haul, Northern Spain &amp; Portugal road links.</div>
-        </div>
-      </article>
-      <article class="location-card">
-        <img src="https://images.unsplash.com/photo-1551634979-2b11f8c946fe?w=900&q=80" alt="Valencia">
-        <div class="location-card__body">
-          <div class="location-card__city">Valencia</div>
-          <div class="location-card__role">Europe's busiest Med port — renewable energy projects, consumer goods, citrus &amp; reefer.</div>
-        </div>
-      </article>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="location-card">
+          <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=900&q=80" alt="Barcelona">
+          <div class="location-card__body">
+            <div class="location-card__city">Barcelona</div>
+            <div class="location-card__role">Mediterranean gateway — sea freight, fashion supply chain, cruise &amp; perishables.</div>
+          </div>
+        </article>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="location-card">
+          <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&q=80" alt="Madrid">
+          <div class="location-card__body">
+            <div class="location-card__city">Madrid</div>
+            <div class="location-card__role">National HQ — air freight via Barajas, contract logistics, country-wide road network.</div>
+          </div>
+        </article>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="location-card">
+          <img src="https://images.unsplash.com/photo-1577147443647-81856d5151af?w=900&q=80" alt="Bilbao">
+          <div class="location-card__body">
+            <div class="location-card__city">Bilbao</div>
+            <div class="location-card__role">Atlantic corridor — automotive, industrial heavy haul, Northern Spain &amp; Portugal road links.</div>
+          </div>
+        </article>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="location-card">
+          <img src="https://images.unsplash.com/photo-1551634979-2b11f8c946fe?w=900&q=80" alt="Valencia">
+          <div class="location-card__body">
+            <div class="location-card__city">Valencia</div>
+            <div class="location-card__role">Europe's busiest Med port — renewable energy projects, consumer goods, citrus &amp; reefer.</div>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── CONTACT ────────────── -->
-<section id="contact" class="contact-band">
-  <div class="container">
-    <span class="section-eyebrow" style="color:hsla(0,0%,100%,.7)">Talk to your local team</span>
-    <h2>Let's do business in Spain.</h2>
-    <p style="opacity:.85;max-width:620px;font-size:1.0625rem">
-      Whether you're moving freight into Iberia or out to the world, your first call goes to a person — not a portal.
-    </p>
-    <div class="contact-card">
-      <div class="contact-card__photo" aria-hidden="true">ES</div>
-      <div>
-        <div class="contact-card__name">Country Manager Spain</div>
-        <div class="contact-card__title">Managing Director · Hellmann Worldwide Logistics Spain</div>
-        <div class="contact-card__meta">spain@hellmann.com · +34 93 XXX XX XX · Madrid HQ</div>
+<!-- ═══════════════════════════════════════════════════════════════
+     OUR PRODUCTS & SERVICES
+     Drupal:  section > grid > [headline] + 4×[column.md:w-3/12 > paragraph--related_content card]
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section mt-lg" id="products">
+  <div class="paragraph paragraph--grid container">
+    <div class="flex flex-wrap c-grid">
+      <div class="paragraph paragraph--column c-column w-full ml-0">
+        <div class="paragraph paragraph--headline headline">
+          <span class="section-eyebrow">Our Products in Spain</span>
+          <h2 class="field--field-headline w-full">Four modes. One coordinated network.</h2>
+        </div>
       </div>
-      <a class="button --primary" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff" href="#">
-        Get in touch <span class="arrow">→</span>
-      </a>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="card">
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=80" alt=""></div>
+          <div class="card__body">
+            <h3 class="card__title">Air Freight</h3>
+            <ul class="card__bullets">
+              <li>Daily consolidations via Madrid Barajas &amp; Barcelona El Prat</li>
+              <li>Time-critical capacity to Americas, Asia &amp; intra-EU</li>
+              <li>Charter solutions for project cargo</li>
+            </ul>
+            <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
+          </div>
+        </article>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="card">
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1494412574745-e8bda5bf2607?w=900&q=80" alt=""></div>
+          <div class="card__body">
+            <h3 class="card__title">Sea Freight</h3>
+            <ul class="card__bullets">
+              <li>FCL &amp; LCL from Valencia, Barcelona, Algeciras, Bilbao</li>
+              <li>Direct services to LATAM, North Africa, Far East</li>
+              <li>Reefer chains &amp; project cargo</li>
+            </ul>
+            <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
+          </div>
+        </article>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="card">
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80" alt=""></div>
+          <div class="card__body">
+            <h3 class="card__title">Road Freight</h3>
+            <ul class="card__bullets">
+              <li>Full-load &amp; groupage across Iberia and into Europe</li>
+              <li>Daily departures from Madrid, Catalonia, Basque Country, Valencia</li>
+              <li>Integrated with Hellmann's European network</li>
+            </ul>
+            <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
+          </div>
+        </article>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+        <article class="card">
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt=""></div>
+          <div class="card__body">
+            <h3 class="card__title">Contract Logistics</h3>
+            <ul class="card__bullets">
+              <li>Warehousing &amp; fulfilment in Madrid and Barcelona</li>
+              <li>Value-added services for fashion &amp; consumer goods</li>
+              <li>High-mix manufacturing support</li>
+            </ul>
+            <a class="card__link" href="#">Learn More <span class="arrow">→</span></a>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── PRODUCTS ────────────── -->
-<section id="products">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="section-eyebrow">Our products in Spain</span>
-        <h2>Four modes. One coordinated network.</h2>
+<!-- ═══════════════════════════════════════════════════════════════
+     INDUSTRY SOLUTIONS — Expertise Across Sectors
+     Drupal:  section > grid > [headline] + 4×[column.md:w-3/12 industry-card]
+     (Mirrors Benelux "Our Industry Solutions" — text-only cards in 4-col grid)
+     ─────────────────────────────────────────────────────────────── -->
+<div class="bg-rlight" id="industries">
+  <div class="paragraph paragraph--section">
+    <div class="paragraph paragraph--grid container">
+      <div class="flex flex-wrap c-grid">
+        <div class="paragraph paragraph--column c-column w-full ml-0">
+          <div class="paragraph paragraph--headline headline">
+            <span class="section-eyebrow">Industry Solutions</span>
+            <h2 class="field--field-headline w-full">Built around the industries that shape Spain.</h2>
+          </div>
+        </div>
+        <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+          <div class="industry-card">
+            <h3 class="industry-card__title">Automotive</h3>
+            <p class="industry-card__copy">From the SEAT and Ford plants of Catalonia and Valencia to German OEM tier-1 suppliers in the Basque Country — JIT inbound, finished-vehicle distribution, and aftermarket parts.</p>
+            <a class="industry-card__link" href="#">Industry insights →</a>
+          </div>
+        </div>
+        <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+          <div class="industry-card">
+            <h3 class="industry-card__title">Fashion</h3>
+            <p class="industry-card__copy">Spain is the home of fast fashion at global scale. Our Barcelona and Madrid teams handle store replenishment, e-commerce fulfilment, and the reverse logistics that the sector depends on.</p>
+            <a class="industry-card__link" href="#">Industry insights →</a>
+          </div>
+        </div>
+        <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+          <div class="industry-card">
+            <h3 class="industry-card__title">Consumer Goods</h3>
+            <p class="industry-card__copy">Cross-border distribution into Spain &amp; Portugal, reefer chains for food and beverage, and the warehousing footprint to support omnichannel retail at scale.</p>
+            <a class="industry-card__link" href="#">Industry insights →</a>
+          </div>
+        </div>
+        <div class="paragraph paragraph--column c-column md:w-3/12 w-full">
+          <div class="industry-card">
+            <h3 class="industry-card__title">Renewable Energy</h3>
+            <p class="industry-card__copy">Spain leads Europe in solar and wind capacity. We move blades, towers, transformers, and PV modules from manufacturer to project site — including the heavy-haul road permits that come with them.</p>
+            <a class="industry-card__link" href="#">Industry insights →</a>
+          </div>
+        </div>
       </div>
-      <p>End-to-end coverage across air, sea, road and contract logistics — orchestrated from a single Spanish account team.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Air Freight</h3>
-          <p class="card__copy">Daily consolidations through Madrid Barajas and Barcelona El Prat. Time-critical capacity to the Americas, Asia, and intra-Europe — including charter solutions for project cargo.</p>
-          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1494412574745-e8bda5bf2607?w=900&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Sea Freight</h3>
-          <p class="card__copy">FCL and LCL services from Spain's busiest Mediterranean ports — Valencia, Barcelona, Algeciras — and Atlantic hubs at Bilbao. Direct services to LATAM, North Africa, and the Far East.</p>
-          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Road Freight</h3>
-          <p class="card__copy">Full-load and groupage across Iberia and into Europe. Daily departures linking Madrid, Catalonia, the Basque Country, Valencia, and Portugal to Hellmann's European network.</p>
-          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Contract Logistics</h3>
-          <p class="card__copy">Warehousing, value-added services and fulfilment from strategic locations in Madrid and Barcelona. Built for fashion, consumer goods, and high-mix manufacturing.</p>
-          <a class="card__link" href="#">Learn more <span class="arrow">→</span></a>
-        </div>
-      </article>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── INDUSTRY SOLUTIONS ────────────── -->
-<section id="industries" style="background:var(--color-gray-rlight)">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="section-eyebrow">Industry Solutions</span>
-        <h2>Built around the industries that shape Spain.</h2>
-      </div>
-      <p>Spain's economy isn't generic — and our service model isn't either. These four industries account for the largest share of our Spanish volume.</p>
-    </div>
-    <div class="card-grid --two-by-two">
-      <article class="card --industry">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1597007030739-6d2e7172ee6f?w=1200&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Automotive</h3>
-          <p class="card__copy">From the SEAT and Ford plants of Catalonia and Valencia to the German OEM tier-1 suppliers in the Basque Country — JIT inbound, finished-vehicle distribution, and aftermarket parts.</p>
-          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
-        </div>
-      </article>
-      <article class="card --industry">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Fashion</h3>
-          <p class="card__copy">Spain is the home of fast fashion at global scale. Our Barcelona and Madrid teams handle store replenishment, e-commerce fulfilment, and the reverse logistics that the sector depends on.</p>
-          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
-        </div>
-      </article>
-      <article class="card --industry">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Consumer Goods</h3>
-          <p class="card__copy">Cross-border distribution into Spain &amp; Portugal, reefer chains for food and beverage, and the warehousing footprint to support omnichannel retail.</p>
-          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
-        </div>
-      </article>
-      <article class="card --industry">
-        <div class="card__image"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80" alt=""></div>
-        <div class="card__body">
-          <h3 class="card__title">Renewable Energy</h3>
-          <p class="card__copy">Spain leads Europe in solar and wind capacity. We move blades, towers, transformers, and PV modules from manufacturer to project site — including the heavy-haul road permits that come with them.</p>
-          <a class="card__link" href="#">Industry insights <span class="arrow">→</span></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ────────────── FEATURE: IBERIA ↔ LATAM ────────────── -->
-<section class="feature">
-  <div class="container">
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE: Iberia ↔ LATAM corridor
+     Drupal:  section > grid > [column.md:w-6/12 text+headline] + [column.md:w-6/12 image/media-assets]
+     (Mirrors Benelux "New Airfreight Consolidation Service: Benelux to Dubai")
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section mt-lg paragraph--text_and_image">
+  <div class="paragraph paragraph--grid container">
     <div class="feature__grid">
-      <div class="feature__visual">
-        <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1200&q=80" alt="">
-      </div>
-      <div class="feature__body">
-        <span class="section-eyebrow">Spotlight · Iberia ↔ LATAM corridor</span>
-        <h2>Europe's natural gateway to Latin America runs through Spain.</h2>
+      <!-- text column -->
+      <div class="paragraph paragraph--column c-column md:w-6/12 w-full feature__body">
+        <span class="section-eyebrow">Spotlight</span>
+        <h2 class="field--field-headline w-full">Europe's gateway to Latin America runs through Spain.</h2>
         <p>Shared language, deep historical trade ties, and the densest direct shipping and air-cargo schedules between Europe and LATAM all land at Spanish ports and airports first. We've built a dedicated desk to make that advantage usable.</p>
         <ul>
-          <li>Weekly FCL/LCL services from Valencia and Algeciras to Mexico, Brazil, Chile, and Argentina.</li>
-          <li>Spanish-language customer service from Madrid, mirroring time zones for Mexico and South America.</li>
-          <li>Customs and trade compliance expertise for AEO, EUR.1, and EUR-MED preferential origin.</li>
-          <li>Local-to-local handoff through Hellmann's offices across 16 LATAM countries.</li>
+          <li>Weekly FCL/LCL services from Valencia and Algeciras to Mexico, Brazil, Chile, Argentina.</li>
+          <li>Spanish-language customer service from Madrid, mirroring LATAM time zones.</li>
+          <li>Customs &amp; trade compliance expertise — AEO, EUR.1, EUR-MED preferential origin.</li>
+          <li>Local-to-local handoff via Hellmann's offices across 16 LATAM countries.</li>
         </ul>
-        <a class="button --primary" href="#contact">Talk to the LATAM desk <span class="arrow">→</span></a>
+        <a class="button --primary" href="#contact">Talk to the LATAM desk</a>
+      </div>
+      <!-- image column -->
+      <div class="paragraph paragraph--column c-column md:w-6/12 w-full">
+        <div class="paragraph paragraph--image image">
+          <div class="feature__visual">
+            <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1200&q=80" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── VISION ────────────── -->
-<section class="vision">
-  <div class="container">
-    <span class="section-eyebrow" style="color:hsla(0,0%,100%,.7)">The Hellmann Promise</span>
-    <p class="vision__quote">For the better. Together.</p>
-    <p class="vision__body">
-      Hellmann was founded in 1871 and is still owned by the Hellmann family. We carry that into every market we operate in —
-      including Spain. Caring, entrepreneurial, appreciative, empowering, respectful, sustainable, passionate. Seven values, one promise.
-    </p>
-  </div>
-</section>
-
-<!-- ────────────── CTA STRIP ────────────── -->
-<section class="cta-strip">
-  <div class="container">
-    <span class="section-eyebrow">Ready when you are</span>
-    <h2>Move your business through Spain — with people who know it.</h2>
-    <p>A 15-minute call with our country team is enough to map your first lane. No portal, no ticket queue.</p>
-    <div class="cta-strip__buttons">
-      <a class="button --primary" href="#contact">Let's Do Business <span class="arrow">→</span></a>
-      <a class="button --outlined" href="#offices">Find your nearest office</a>
+<!-- ═══════════════════════════════════════════════════════════════
+     CONTACT BAND
+     Drupal:  paragraph--section (blue background) > grid > column > paragraph--block (contact form CTA)
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section paragraph--quote_vision" id="contact" style="padding:64px 0">
+  <div class="paragraph paragraph--grid container" style="position:relative;z-index:1">
+    <div class="flex flex-wrap c-grid">
+      <div class="paragraph paragraph--column c-column md:w-7/12 w-full ml-0">
+        <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">Talk to your local team</span>
+        <h2 class="field--field-headline w-full" style="color:#fff">Let's do business in Spain.</h2>
+        <p style="font-size:17px;opacity:.92;max-width:560px;color:#fff">
+          Whether you're moving freight into Iberia or out to the world, your first call goes to a person — not a portal.
+        </p>
+      </div>
+      <div class="paragraph paragraph--column c-column md:w-4/12 w-full ml-1/12" style="display:flex;align-items:center">
+        <a class="button --primary" href="mailto:spain@hellmann.com" style="background:#fff;color:var(--color-hwl-blue);border-color:#fff;width:100%">Get in touch</a>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ────────────── FOOTER ────────────── -->
+<!-- ═══════════════════════════════════════════════════════════════
+     VISION  (Drupal: paragraph--quote_vision)
+     ─────────────────────────────────────────────────────────────── -->
+<div class="paragraph paragraph--section paragraph--quote_vision">
+  <div class="container" style="position:relative;z-index:1">
+    <span class="section-eyebrow" style="color:rgba(255,255,255,.7)">The Hellmann Promise</span>
+    <p class="quote_vision__quote">For the better. Together.</p>
+    <p class="quote_vision__body">
+      Founded in 1871 and still owned by the Hellmann family, we carry that promise into every market we operate in — including Spain.
+    </p>
+    <div class="quote_vision__values" aria-label="Hellmann values">
+      <span>Caring</span><span>Entrepreneurial</span><span>Appreciative</span>
+      <span>Empowering</span><span>Respectful</span><span>Sustainable</span><span>Passionate</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+     ─────────────────────────────────────────────────────────────── -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer__grid">
@@ -940,7 +859,7 @@ section.--tight{padding:var(--spacing-small) 0}
   </div>
 </footer>
 
-<div class="concept-badge" aria-hidden="true">Concept · v1</div>
+<div class="concept-badge" aria-hidden="true">Concept · v2</div>
 
 </body>
 </html>
