@@ -225,33 +225,16 @@ p{margin:0 0 1em}
 @media (max-width:1100px){
   .site-header__primary-nav{display:none}
 }
+/* Official Hellmann logo lockup (wordmark + goose mark in one PNG, RGBA transparent bg) */
 .site-logo{
-  display:inline-flex;align-items:flex-start;gap:0;
-  text-decoration:none;line-height:1;flex-shrink:0;
+  display:inline-flex;align-items:center;
+  text-decoration:none;flex-shrink:0;
 }
-.site-logo__wordmark{
-  display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;
+.site-logo img{
+  height:36px;width:auto;display:block;
 }
-.site-logo__brand{
-  font-family:var(--font-display);font-weight:700;font-size:26px;
-  color:var(--color-hwl-red);letter-spacing:-.02em;line-height:1;
-}
-.site-logo__tagline{
-  font-family:var(--font-body);font-weight:700;font-size:9px;
-  color:var(--color-hwl-blue);letter-spacing:.18em;
-  text-transform:uppercase;margin-top:3px;
-}
-/* Geese mark — sits to the TOP-RIGHT of the wordmark, sized to ~half the cap-height of 'hellmann' */
-.site-logo__mark{
-  display:inline-block;flex-shrink:0;
-  width:18px;height:18px;
-  margin-left:4px;margin-top:-3px;
-}
-.site-logo__mark img{width:100%;height:100%;display:block;object-fit:contain;background:#fff;border-radius:50%}
-/* Footer copyright logo is larger — scale the mark up proportionally */
-.site-footer__copyright .site-logo__brand{font-size:36px}
-.site-footer__copyright .site-logo__tagline{font-size:11px}
-.site-footer__copyright .site-logo__mark{width:26px;height:26px;margin-top:-4px;margin-left:5px}
+/* Footer copyright shows it larger and centered */
+.site-footer__copyright .site-logo img{height:48px}
 .site-header__search{
   flex:0 1 320px;display:flex;align-items:center;gap:8px;
   background:var(--color-gray-rlight);border-radius:5px;
@@ -683,13 +666,7 @@ p{margin:0 0 1em}
 <header class="site-header">
   <div class="site-header__inner">
     <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics — back to home">
-      <span class="site-logo__wordmark">
-        <span class="site-logo__brand">hellmann</span>
-        <span class="site-logo__tagline">Worldwide Logistics</span>
-      </span>
-      <span class="site-logo__mark" aria-hidden="true">
-        <img src="https://www.hellmann.com/themes/hwl/assets/images/favicons/apple-touch-icon-152x152.png" alt="" loading="lazy" width="152" height="152">
-      </span>
+      <img src="/hellmann-logo.png" alt="Hellmann Worldwide Logistics" width="1890" height="478" loading="eager">
     </a>
     <nav class="site-header__primary-nav" aria-label="Primary navigation">
       <a href="https://www.hellmann.com/en/products/airfreight">Products</a>
@@ -1129,13 +1106,7 @@ p{margin:0 0 1em}
   <!-- Mini-header at the top of the footer (matches real hellmann.com pattern) -->
   <div class="site-footer__top">
     <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics — home">
-      <span class="site-logo__wordmark">
-        <span class="site-logo__brand">hellmann</span>
-        <span class="site-logo__tagline">Worldwide Logistics</span>
-      </span>
-      <span class="site-logo__mark" aria-hidden="true">
-        <img src="https://www.hellmann.com/themes/hwl/assets/images/favicons/apple-touch-icon-152x152.png" alt="" loading="lazy" width="152" height="152">
-      </span>
+      <img src="/hellmann-logo.png" alt="Hellmann Worldwide Logistics" width="1890" height="478" loading="lazy">
     </a>
     <form class="site-header__search" role="search" onsubmit="event.preventDefault();window.location='https://www.hellmann.com/en/search/node?keys='+encodeURIComponent(this.elements[0].value);">
       <input type="search" placeholder="Search &amp; find" aria-label="Search hellmann.com">
@@ -1182,13 +1153,7 @@ p{margin:0 0 1em}
   <!-- Bottom: brand + copyright -->
   <div class="site-footer__copyright">
     <a href="https://www.hellmann.com/en" class="site-logo" aria-label="Hellmann Worldwide Logistics">
-      <span class="site-logo__wordmark">
-        <span class="site-logo__brand">hellmann</span>
-        <span class="site-logo__tagline">Worldwide Logistics</span>
-      </span>
-      <span class="site-logo__mark" aria-hidden="true">
-        <img src="https://www.hellmann.com/themes/hwl/assets/images/favicons/apple-touch-icon-152x152.png" alt="" loading="lazy" width="152" height="152">
-      </span>
+      <img src="/hellmann-logo.png" alt="Hellmann Worldwide Logistics" width="1890" height="478" loading="lazy">
     </a>
     <p>© 2026 Hellmann Worldwide Logistics · Concept page for Spain</p>
   </div>
